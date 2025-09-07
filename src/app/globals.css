@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Color Palette */
+  --color-primary: #ff0033;
+  --color-secondary: #00ffff;
+  --color-accent: #0f0;
+  --color-bg-primary: #0d0d0d;
+  --color-bg-secondary: #111111;
+  --color-bg-card: rgba(0, 0, 0, 0.6);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #eeeeee;
+  
+  /* Animations */
+  --animation-glow: 0 0 10px currentColor;
+  --animation-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Typography */
+  --font-family-primary: var(--font-inter);
+  --font-family-display: var(--font-orbitron);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-white min-h-screen;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-black/50;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-red-500/70 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-red-500;
+  }
+}
+
+@layer components {
+  /* Glow Effects */
+  .glow-primary {
+    text-shadow: 0 0 10px var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+  }
+  
+  .glow-secondary {
+    text-shadow: 0 0 10px var(--color-secondary);
+    box-shadow: 0 0 10px var(--color-secondary);
+  }
+  
+  .glow-accent {
+    text-shadow: 0 0 5px var(--color-accent);
+    box-shadow: 0 0 5px var(--color-accent);
+  }
+  
+  /* Cyber Buttons */
+  .btn-cyber {
+    @apply relative px-6 py-3 font-semibold text-white bg-gradient-to-r from-red-500 to-red-600 rounded-lg;
+    @apply border-2 border-transparent transition-all duration-300 ease-in-out;
+    @apply hover:from-red-600 hover:to-red-500 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50;
+    @apply active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-500/50;
+  }
+  
+  .btn-cyber-secondary {
+    @apply relative px-6 py-3 font-semibold text-cyan-400 bg-transparent rounded-lg;
+    @apply border-2 border-cyan-400 transition-all duration-300 ease-in-out;
+    @apply hover:bg-cyan-400 hover:text-black hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/50;
+    @apply active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400/50;
+  }
+  
+  /* Animated Backgrounds */
+  .bg-cyber-grid {
+    background-image: 
+      linear-gradient(rgba(255, 0, 51, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 0, 51, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: cyber-grid 20s linear infinite;
+  }
+  
+  /* Fade In Animation */
+  .fade-in {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  
+  .fade-in.appear {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* Glitch Effect */
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .glitch::before {
+    color: var(--color-secondary);
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    animation: glitch-top 3s infinite linear alternate-reverse;
+  }
+  
+  .glitch::after {
+    color: var(--color-accent);
+    clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
+    animation: glitch-bottom 3s infinite linear alternate-reverse;
+  }
+  
+  /* Neon Text */
+  .neon-text {
+    color: var(--color-primary);
+    text-shadow: 
+      0 0 5px var(--color-primary),
+      0 0 10px var(--color-primary),
+      0 0 15px var(--color-primary),
+      0 0 20px var(--color-primary);
+  }
+  
+  .neon-text-secondary {
+    color: var(--color-secondary);
+    text-shadow: 
+      0 0 5px var(--color-secondary),
+      0 0 10px var(--color-secondary),
+      0 0 15px var(--color-secondary),
+      0 0 20px var(--color-secondary);
+  }
+  
+  /* Card Styles */
+  .cyber-card {
+    @apply bg-black/60 border border-gray-800 rounded-xl backdrop-blur-md;
+    @apply hover:border-red-500/50 hover:shadow-lg hover:shadow-red-500/20;
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .cyber-card-secondary {
+    @apply bg-black/40 border border-gray-700 rounded-xl backdrop-blur-sm;
+    @apply hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-400/20;
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  /* Loading Animations */
+  .loading-dots {
+    @apply flex space-x-1;
+  }
+  
+  .loading-dots div {
+    @apply w-2 h-2 bg-red-500 rounded-full animate-pulse;
+  }
+  
+  .loading-dots div:nth-child(1) { animation-delay: 0s; }
+  .loading-dots div:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dots div:nth-child(3) { animation-delay: 0.4s; }
+  
+  /* Audio Visualizer */
+  .audio-bars {
+    @apply flex items-end space-x-1;
+  }
+  
+  .audio-bars div {
+    @apply w-1 bg-gradient-to-t from-red-500 to-cyan-400 rounded-t;
+    animation: audio-wave 1s ease-in-out infinite;
+  }
+  
+  .audio-bars div:nth-child(1) { 
+    animation-delay: 0s; 
+  }
+  .audio-bars div:nth-child(2) { 
+    animation-delay: 0.1s; 
+  }
+  .audio-bars div:nth-child(3) { 
+    animation-delay: 0.2s; 
+  }
+  .audio-bars div:nth-child(4) { 
+    animation-delay: 0.3s; 
+  }
+  .audio-bars div:nth-child(5) { 
+    animation-delay: 0.4s; 
+  }
+}
+
+@layer utilities {
+  /* Custom Utilities */
+  .text-gradient {
+    @apply bg-gradient-to-r from-red-500 to-cyan-400 bg-clip-text text-transparent;
+  }
+  
+  .border-gradient {
+    border-image: linear-gradient(45deg, #ff0033, #00ffff) 1;
+  }
+  
+  .bg-noise {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes cyber-grid {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+@keyframes glitch-top {
+  0%, 14%, 15%, 25%, 26%, 49%, 50%, 63%, 64%, 99%, 100% {
+    transform: translateX(0);
+  }
+  1%, 13%, 16%, 24%, 27%, 48%, 51%, 62%, 65%, 98% {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes glitch-bottom {
+  0%, 12%, 13%, 23%, 24%, 47%, 48%, 61%, 62%, 97%, 98% {
+    transform: translateX(0);
+  }
+  3%, 11%, 14%, 22%, 25%, 46%, 49%, 60%, 63%, 96%, 99% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes audio-wave {
+  0%, 100% { height: 4px; }
+  50% { height: 20px; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--color-primary);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--color-primary), 0 0 30px var(--color-primary);
+  }
+}
+
+/* Responsive Design Helpers */
+@media (max-width: 768px) {
+  .mobile-nav {
+    @apply fixed top-0 left-0 w-full h-full bg-black/95 backdrop-blur-md z-50;
+    @apply flex flex-col items-center justify-center space-y-8;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .mobile-nav.active {
+    transform: translateX(0);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    @apply bg-white text-black;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus Styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black;
+}
+
+/* Selection Styles */
+::selection {
+  @apply bg-red-500 text-white;
+}
+
+::-moz-selection {
+  @apply bg-red-500 text-white;
+}
+
+/* Navigation Styles */
+.nav-link {
+  @apply text-white font-medium px-3 py-2 rounded-md transition-all duration-300;
+  @apply hover:text-cyan-400 hover:bg-gray-800/50;
+}
+
+.nav-link-special {
+  @apply bg-gradient-to-r from-red-500 to-cyan-400 text-white font-bold;
+  @apply hover:from-cyan-400 hover:to-red-500;
+}
+
+.mobile-nav-link {
+  @apply block px-3 py-2 rounded-md text-base font-medium text-gray-300;
+  @apply hover:text-white hover:bg-gray-700 transition-colors;
+}
+
+.mobile-nav-link-special {
+  @apply bg-gradient-to-r from-red-500 to-cyan-400 text-white;
+  @apply hover:from-cyan-400 hover:to-red-500;
+}
