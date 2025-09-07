@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="live DJ stream, electronic music live, techno streaming, online DJ sets, live music performance">
+  <meta name="description" content="Join live electronic music streams featuring techno, hardstyle, and house music. Interactive chat, real-time requests, and multi-platform streaming.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Live Stream | Watch TheBadGuyHimself DJ Sets Online">
+    <meta property="og:description" content="Join live electronic music streams featuring techno, hardstyle, and house music. Interactive chat, real-time requests, and multi-platform streaming.">
+    <meta property="og:image" content="assets/images/live-stream-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Live Stream | Watch TheBadGuyHimself DJ Sets Online">
+    <meta name="twitter:description" content="Join live electronic music streams featuring techno, hardstyle, and house music. Interactive chat, real-time requests, and multi-platform streaming.">
+    <meta name="twitter:image" content="assets/images/live-stream-preview.jpg">
+    <title>Live Stream | Watch TheBadGuyHimself DJ Sets Online</title>
+    
+    <!-- Core Styles -->
+    
+    
+    
+    
+    
+    
+    <!-- Live Stream Specific Styles -->
+    <link rel="stylesheet" href="assets/css/live-stream.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" integrity="sha512-H+rglffZ6f5gF7UJgvH4Naa+fGCgjrHKMgoFOGmcPTRwR6oILo5R+gtzNrpDp7iMV3udbymBVjkeZGNz1Em4rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/ui-utils.js"></script>
+    <script defer src="assets/js/live-stream-manager.js"></script>
+<style id="critical-css">body{margin:0;font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0d0d0d 100%);color:#fff;line-height:1.6;min-height:100vh}.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(17,17,17,0.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(255,0,51,0.3)}.nav__brand{font-family:'Orbitron',sans-serif;font-size:1.5rem;font-weight:600;color:#ff0033;text-shadow:0 0 10px rgba(255,0,51,0.5)}.nav__toggle{display:none;flex-direction:column;background:none;border:none;cursor:pointer;padding:0.5rem}.nav__toggle-line{width:25px;height:3px;background-color:#00ffff;margin:3px 0;transition:0.3s;border-radius:2px}.nav__links{display:flex;list-style:none;gap:2rem;align-items:center}.nav__link{color:#fff;text-decoration:none;font-weight:500;padding:0.5rem 1rem;border-radius:8px;transition:all 0.3s ease;position:relative}.nav__link:hover{color:#00ffff;text-shadow:0 0 8px rgba(0,255,255,0.6);background:rgba(0,255,255,0.1)}.navbar{display:flex;justify-content:space-between;padding:1rem 2rem;background-color:#111}.nav-links{list-style:none;display:flex;gap:1rem}.nav-links li a{color:#fff;text-decoration:none;font-weight:bold;padding:0.5rem 1rem;border-radius:8px;transition:all 0.3s ease}.nav-links li a:hover{color:#00ffff;text-shadow:0 0 5px #00ffff;background:rgba(0,255,255,0.1)}.hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(to bottom right,#0d0d0d,#1a1a1a);padding:5rem 2rem}.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}.overlay{position:relative;z-index:1;background:rgba(0,0,0,0.7);padding:3rem;border-radius:20px;backdrop-filter:blur(10px);border:1px solid rgba(255,0,51,0.3)}.hero__title,.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5vw,4rem);color:#ff0033;margin-bottom:1rem;text-shadow:0 0 20px rgba(255,0,51,0.8);animation:glow 2s ease-in-out infinite alternate}.hero__tagline,.hero h2{font-size:1.2rem;color:#00ffff;margin-bottom:2rem;text-shadow:0 0 10px rgba(0,255,255,0.5)}.btn-primary,.btn-secondary{display:inline-block;padding:1rem 2rem;margin:0.5rem;font-weight:600;text-decoration:none;border-radius:12px;transition:all 0.3s ease;border:2px solid transparent;position:relative;overflow:hidden}.btn-primary{background:linear-gradient(45deg,#ff0033,#ff3366);color:#fff;box-shadow:0 4px 15px rgba(255,0,51,0.4)}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,0,51,0.6);background:linear-gradient(45deg,#ff3366,#ff0033)}main{max-width:1200px;margin:0 auto;padding:2rem}section h2{font-family:'Orbitron',sans-serif;color:#ff0033;margin-bottom:1.5rem;font-size:2rem;text-align:center}.fade-in.appear{opacity:1;transform:translateY(0)}.nav__logo{height:40px;border-radius:50%}.about-hero{display:flex;gap:2rem;align-items:flex-start;margin-bottom:2rem}.about-details h2{color:#ff0033;font-family:'Orbitron',sans-serif;font-size:1.5rem;margin:2rem 0 1rem 0;text-align:left}.about-details p{line-height:1.8;margin-bottom:1.5rem;color:#ccc}#playlist{list-style:none;padding:0}#playlist li{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;padding:1rem;background:rgba(17,17,17,0.8);border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease}#playlist li:hover{background:rgba(255,0,51,0.1);border-color:rgba(255,0,51,0.3)}#playlist li.active{background:rgba(0,255,255,0.1);border-color:rgba(0,255,255,0.5)}.player-controls{display:flex;gap:1rem;justify-content:center;margin:2rem 0}.player-controls button,.remove-btn{background:linear-gradient(45deg,#00ffff,#0099cc);color:#000;border:none;padding:0.75rem 1.5rem;cursor:pointer;border-radius:8px;font-weight:600;transition:all 0.3s ease}.player-controls button:hover,.remove-btn:hover{background:linear-gradient(45deg,#0099cc,#00ffff);transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,255,255,0.4)}.playlist-section form,.booking-form{margin-bottom:2rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center}.playlist-section input,.booking-form input,.booking-form textarea{padding:0.75rem;border:2px solid rgba(255,255,255,0.2);background:rgba(17,17,17,0.8);color:#fff;border-radius:8px;font-family:'Inter',sans-serif;transition:all 0.3s ease;flex:1;min-width:200px}.playlist-section input:focus,.booking-form input:focus,.booking-form textarea:focus{outline:none;border-color:#00ffff;box-shadow:0 0 10px rgba(0,255,255,0.3)}.playlist-section button,.booking-form button{background:linear-gradient(45deg,#ff0033,#ff3366);color:#fff;border:none;padding:0.75rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;transition:all 0.3s ease}.playlist-section button:hover,.booking-form button:hover{background:linear-gradient(45deg,#ff3366,#ff0033);transform:translateY(-2px);box-shadow:0 4px 15px rgba(255,0,51,0.4)}#aiResponse{background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:1rem;color:#fff;font-family:'Inter',sans-serif;white-space:pre-wrap;min-height:60px;max-height:300px;overflow-y:auto}.contact-section,.info-section,.booking-section,.profile-section{max-width:800px;margin:2rem auto;padding:2rem;background:rgba(26,26,26,0.9);border-radius:16px;border:1px solid rgba(255,255,255,0.1)}.video-info h3{color:#ff0033;font-family:'Orbitron',sans-serif;margin-bottom:0.5rem;font-size:1.3rem}.video-info p{color:#ccc;margin-bottom:1rem;line-height:1.6}.nav__toggle{display:flex}.nav__links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(17,17,17,0.98);flex-direction:column;padding:1rem;border-top:1px solid rgba(255,0,51,0.3)}.nav__links--active{display:flex}.hero{min-height:60vh;padding:3rem 1rem}.overlay{padding:2rem}.hero__title,.hero h1{font-size:2.5rem}main{padding:1rem}.playlist-section form,.booking-form{flex-direction:column;align-items:stretch}.playlist-section input,.booking-form input,.booking-form textarea{min-width:auto}.player-controls{flex-wrap:wrap}.nav{padding:1rem}.hero__title,.hero h1{font-size:2rem}.hero__tagline,.hero h2{font-size:1rem}.btn-primary,.btn-secondary{padding:0.75rem 1.5rem;font-size:0.9rem}section h2{font-size:1.5rem}#playlist li{flex-direction:column;text-align:center;gap:0.5rem}body{font-family:'Inter',sans-serif;background-color:var(--bg-color);color:var(--text-color);line-height:1.6}.container{max-width:1200px;margin:0 auto;padding:0 20px}.main-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,13,13,0.95);padding:20px 40px;display:flex;justify-content:space-between;align-items:center}.nav-brand{font-family:'Orbitron',sans-serif;font-size:24px;font-weight:bold;color:var(--primary-color);text-shadow:0 0 10px var(--primary-color)}.nav-links{display:flex;list-style:none;gap:30px}.nav-links a{color:var(--text-color);text-decoration:none;transition:all 0.3s ease}.nav-links a:hover{color:var(--accent-color);text-shadow:0 0 5px var(--accent-color)}.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(to bottom right,var(--bg-color),var(--bg-secondary))}.hero-content{z-index:1;padding:20px}h1{font-family:'Orbitron',sans-serif;font-size:4rem;color:var(--primary-color);text-shadow:0 0 20px var(--primary-color);margin-bottom:20px}.btn-primary,.btn-secondary{padding:15px 30px;border:none;border-radius:5px;text-decoration:none;font-weight:bold;transition:all 0.3s ease;margin:10px;display:inline-block}.btn-primary{background-color:var(--primary-color);color:var(--text-color)}.btn-primary:hover,.btn-secondary:hover{transform:translateY(-2px);box-shadow:0 0 15px var(--primary-color),0 0 30px var(--accent-color)}.profile-placeholder{width:100%;height:400px;border-radius:10px;background:linear-gradient(135deg,var(--bg-color),var(--bg-secondary));display:flex;align-items:center;justify-content:center;color:var(--primary-color);font-size:1.5rem;text-shadow:0 0 10px var(--primary-color);border:2px solid var(--primary-color);box-shadow:0 0 20px rgba(255,0,51,0.3)}.experience-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}.contact-form input,.contact-form textarea{width:100%;padding:15px;margin-bottom:15px;border:1px solid var(--primary-color);border-radius:5px;background:rgba(255,255,255,0.1);color:var(--text-color)}:root{--color-primary:#ff0033;--color-secondary:#00ffff;--color-accent:#0f0;--color-bg-primary:#0d0d0d;--color-bg-secondary:#111;--color-bg-card:rgba(0,0,0,0.6);--color-text-primary:#fff;--color-text-secondary:#eee;--color-overlay:rgba(13,13,13,0.98);--font-family-primary:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--font-family-display:'Orbitron',monospace,sans-serif;--font-family-accent:'Bungee Spice',cursive,sans-serif;--font-size-hero-xl:clamp(2.5rem,5vw,4rem);--font-size-hero-lg:clamp(2rem,4vw,3rem);--font-size-hero-md:clamp(1.5rem,3.5vw,2.5rem);--font-size-section:clamp(1.8rem,3vw,2.2rem);--font-size-nav:1.5rem;--spacing-xs:0.5rem;--spacing-sm:1rem;--spacing-md:1.5rem;--spacing-lg:2rem;--spacing-xl:3rem;--spacing-xxl:5rem;--transition-fast:0.2s ease;--transition-smooth:0.3s ease;--transition-slow:0.6s ease;--transition-glitch:2s infinite linear alternate-reverse;--glow-primary:0 0 10px var(--color-primary);--glow-secondary:0 0 10px var(--color-secondary);--glow-accent:0 0 5px var(--color-accent);--shadow-card:0 8px 32px rgba(0,0,0,0.4);--border-radius:8px;--border-radius-lg:15px;--z-nav-overlay:999;--z-nav-toggle:1000}@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&family=Bungee+Spice&display=swap');*,*::before,*::after{box-sizing:border-box}body{margin:0;font-family:var(--font-family-primary);background-color:var(--color-bg-primary);color:var(--color-text-primary);line-height:1.6;overflow-x:hidden}.nav{display:flex;justify-content:space-between;align-items:center;padding:var(--spacing-sm) var(--spacing-lg);background-color:var(--color-bg-secondary);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,0,51,0.2);position:relative;z-index:100}.nav__brand{font-family:var(--font-family-display);font-size:1.5rem;font-weight:700;color:var(--color-primary);text-decoration:none;text-shadow:var(--glow-primary)}.nav__links{display:flex;list-style:none;gap:var(--spacing-lg);margin:0;padding:0}.nav__link{color:var(--color-primary);text-decoration:none;font-weight:600;transition:all var(--transition-smooth);position:relative}.nav__link:hover,.nav__link:focus{color:var(--color-secondary);text-shadow:var(--glow-secondary);transform:translateY(-2px)}.nav__toggle{display:none;flex-direction:column;cursor:pointer;z-index:var(--z-nav-toggle);background:none;border:none;padding:var(--spacing-xs)}.nav__toggle-line{width:25px;height:3px;background-color:var(--color-primary);margin:3px 0;transition:all var(--transition-smooth);box-shadow:var(--glow-primary)}.hero{background:linear-gradient(135deg,var(--color-bg-primary),#1a1a1a);text-align:center;padding:var(--spacing-xxl) var(--spacing-lg);min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,255,255,0.1),transparent);animation:scanline 8s infinite}.hero__title{font-family:var(--font-family-display);font-size:var(--font-size-hero-xl);color:var(--color-primary);margin-bottom:var(--spacing-md);position:relative;z-index:2}.hero__title--glitch{position:relative;display:inline-block}.hero__title--glitch::before,.hero__title--glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1}.hero__title--glitch::before{color:var(--color-secondary);clip-path:polygon(0 0,100% 0,100% 33%,0 33%);animation:glitch-top var(--transition-glitch)}.hero__title--glitch::after{color:var(--color-accent);clip-path:polygon(0 66%,100% 66%,100% 100%,0 100%);animation:glitch-bottom 3s infinite linear alternate-reverse}.hero__subtitle{font-size:var(--font-size-hero-md);color:var(--color-secondary);margin-bottom:var(--spacing-xl);text-shadow:var(--glow-secondary)}.btn--primary{background-color:var(--color-primary);color:var(--color-text-primary);box-shadow:var(--glow-primary)}.btn--primary:hover{transform:translateY(-3px) scale(1.05);box-shadow:var(--glow-primary),var(--shadow-card)}.fade-in.appear{opacity:1;transform:translateY(0)}.parallax{background-attachment:fixed;background-position:center;background-repeat:no-repeat;background-size:cover;min-height:50vh}.hero{padding:var(--spacing-xl) var(--spacing-md)}.hero__title{font-size:var(--font-size-hero-lg)}.nav__links{gap:var(--spacing-md)}.nav__toggle{display:flex}.nav__links{position:fixed;top:0;left:-100%;width:100%;height:100vh;background:var(--color-overlay);flex-direction:column;justify-content:center;align-items:center;gap:var(--spacing-xl);transition:left var(--transition-smooth);z-index:var(--z-nav-overlay);backdrop-filter:blur(10px)}.nav__links--active{left:0}.nav__link{font-size:var(--font-size-nav);opacity:0;transform:translateY(20px);transition:all var(--transition-smooth)}.nav__links--active .nav__link{opacity:1;transform:translateY(0)}.nav__toggle--active .nav__toggle-line:nth-child(1){transform:rotate(45deg) translate(5px,5px);background-color:var(--color-secondary);box-shadow:var(--glow-secondary)}.nav__toggle--active .nav__toggle-line:nth-child(2){opacity:0}.nav__toggle--active .nav__toggle-line:nth-child(3){transform:rotate(-45deg) translate(7px,-6px);background-color:var(--color-secondary);box-shadow:var(--glow-secondary)}.hero{padding:var(--spacing-xl) var(--spacing-sm);min-height:100vh}.hero__title{font-size:var(--font-size-hero-md)}.parallax{background-attachment:scroll}.hero{padding:var(--spacing-lg) var(--spacing-sm)}.nav{padding:var(--spacing-sm)}.nav__brand{font-size:1.2rem}.hero__title--glitch::before,.hero__title--glitch::after{animation:none}.hero::before{animation:none}.nav__link:focus,.btn:focus{outline:2px solid var(--color-secondary);outline-offset:2px}.nav__links--active .nav__link:nth-child(1){transition-delay:0.1s}.nav__links--active .nav__link:nth-child(2){transition-delay:0.15s}.nav__links--active .nav__link:nth-child(3){transition-delay:0.2s}.nav__links--active .nav__link:nth-child(4){transition-delay:0.25s}.nav__links--active .nav__link:nth-child(5){transition-delay:0.3s}.nav__links--active .nav__link:nth-child(6){transition-delay:0.35s}.text-glow-primary{text-shadow:var(--glow-primary)}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-sm)}main{display:block !important;visibility:visible !important;opacity:1 !important;position:relative !important;z-index:1 !important}.booking-header{text-align:center;margin-bottom:var(--spacing-xxl)}.contact-card,.form-card,.pricing-card,.services-card,.primary-contact-card,.social-media-card,.quick-actions-card,.latest-content-card{padding:var(--spacing-xl);transition:all var(--transition-smooth);position:relative;overflow:hidden}.contact-card:hover,.form-card:hover,.pricing-card:hover,.services-card:hover,.primary-contact-card:hover,.social-media-card:hover,.quick-actions-card:hover,.latest-content-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-card),var(--glow-primary)}.form-group{position:relative}.form-input{width:100%;padding:var(--spacing-sm) var(--spacing-md);background:rgba(0,0,0,0.3);border:2px solid rgba(255,0,51,0.3);border-radius:var(--border-radius);color:var(--color-text-primary);font-size:1rem;transition:all var(--transition-smooth);position:relative;z-index:1}.form-input:focus{outline:none;border-color:var(--color-primary);box-shadow:var(--glow-primary);background:rgba(0,0,0,0.5)}.form-input::placeholder{color:rgba(255,255,255,0.6)}.form-input:focus + .form-highlight{width:100%}.pricing-list{display:flex;flex-direction:column;gap:var(--spacing-md);margin-bottom:var(--spacing-lg)}.pricing-item{display:flex;justify-content:space-between;align-items:center;padding:var(--spacing-sm);background:rgba(0,0,0,0.2);border-radius:var(--border-radius);border-left:3px solid var(--color-accent)}.pricing-type{color:var(--color-text-secondary)}.pricing-amount{color:var(--color-primary);font-weight:700;font-size:1.1rem;text-shadow:var(--glow-primary)}.pricing-note{text-align:center;color:var(--color-accent);font-style:italic}.contact-header{text-align:center;margin-bottom:var(--spacing-xxl)}.social-platforms{display:flex;flex-direction:column;gap:var(--spacing-sm)}.social-platform{display:flex;align-items:center;padding:var(--spacing-sm);background:rgba(0,0,0,0.2);border-radius:var(--border-radius);text-decoration:none;color:var(--color-text-primary);transition:all var(--transition-smooth);border:1px solid rgba(0,255,255,0.2)}.social-platform:hover{background:rgba(0,255,255,0.1);border-color:var(--color-secondary);transform:translateX(5px)}.video-description{text-align:center;color:var(--color-text-secondary);font-style:italic}.contact-card,.form-card,.pricing-card,.services-card,.primary-contact-card,.social-media-card,.quick-actions-card,.latest-content-card{padding:var(--spacing-lg)}.booking-header,.contact-header{margin-bottom:var(--spacing-lg)}.pricing-item{flex-direction:column;text-align:center;gap:var(--spacing-xs)}.contact-method,.social-platform{padding:var(--spacing-sm)}.form-group{position:relative;margin-bottom:1.5rem}.form-input{width:100%;padding:1rem;background:rgba(0,0,0,0.7);border:2px solid rgba(0,255,255,0.3);border-radius:12px;color:#fff;font-size:1rem;transition:all 0.3s ease}.form-input:focus{outline:none;border-color:#00ffff;box-shadow:0 0 20px rgba(0,255,255,0.3);transform:translateY(-2px)}.form-input.valid{border-color:#00ff88;box-shadow:0 0 15px rgba(0,255,136,0.2)}.form-input.invalid{border-color:#ff0033;box-shadow:0 0 15px rgba(255,0,51,0.2)}.form-input:focus + .form-label,.form-input:not(:placeholder-shown) + .form-label{top:-0.5rem;left:0.5rem;font-size:0.8rem;color:#00ffff}.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(0,255,255,0.2)}.progress-bar{width:100%;height:8px;background:rgba(0,0,0,0.3);border-radius:4px;overflow:hidden;margin:1rem 0}.progress-fill{height:100%;background:linear-gradient(90deg,#ff0033,#00ffff);border-radius:4px;transition:width 0.3s ease;position:relative}.progress-fill::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);animation:progress-shine 2s infinite}.tooltip{position:relative;display:inline-block}.tooltip-content{position:absolute;bottom:125%;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.9);color:#fff;padding:0.5rem 1rem;border-radius:8px;font-size:0.8rem;white-space:nowrap;opacity:0;visibility:hidden;transition:all 0.3s ease;z-index:1000;border:1px solid rgba(0,255,255,0.3)}.tooltip-content::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:rgba(0,0,0,0.9)}.tooltip:hover .tooltip-content{opacity:1;visibility:visible;transform:translateX(-50%) translateY(-5px)}.form-input{padding:0.8rem}.btn-enhanced:focus,.form-input:focus,.modal-close:focus{outline:2px solid #00ffff;outline-offset:2px}.form-input{border-width:3px}#particle-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;opacity:0.3}#particle-container canvas{width:100%;height:100%}.typewriter{overflow:hidden;white-space:nowrap;border-right:2px solid var(--color-primary,#ff0033);animation:blink-caret 1s step-end infinite}.count-up{font-weight:bold;color:var(--color-primary,#ff0033);text-shadow:0 0 10px var(--color-primary,#ff0033)}.loading-spinner{display:inline-block;position:relative}.loading-spinner--default .spinner-circle{width:40px;height:40px;border:4px solid rgba(255,0,51,0.2);border-left:4px solid var(--color-primary,#ff0033);border-radius:50%;animation:spin 1s linear infinite}.loading-spinner--dots{display:flex;gap:4px}.loading-spinner--dots div{width:8px;height:8px;background-color:var(--color-primary,#ff0033);border-radius:50%;animation:dots-bounce 1.4s ease-in-out infinite both}.loading-spinner--dots div:nth-child(1){animation-delay:-0.32s}.loading-spinner--dots div:nth-child(2){animation-delay:-0.16s}.loading-spinner--pulse .pulse-ring{width:40px;height:40px;border:2px solid var(--color-primary,#ff0033);border-radius:50%;animation:pulse-ring 1.5s ease-out infinite}.loading-spinner--cyberpunk{position:relative;width:50px;height:50px}.progress-container{width:100%;margin:1rem 0}.progress-bar{width:100%;height:8px;background-color:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;position:relative}.progress-fill{height:100%;background:linear-gradient(90deg,var(--color-primary,#ff0033),var(--color-secondary,#00ffff));border-radius:4px;transition:width 0.3s ease;position:relative}.progress-fill--animated::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);animation:progress-shine 2s infinite}.progress-label{text-align:center;margin-top:0.5rem;font-size:0.9rem;color:var(--color-text-secondary,#eee)}.progress-complete{animation:progress-complete 0.5s ease}.modal-header{display:flex;align-items:center;justify-content:space-between;padding:1.5rem;border-bottom:1px solid rgba(255,0,51,0.2)}.form-input.valid{border-color:#00ff00;box-shadow:0 0 5px rgba(0,255,0,0.3)}.form-input.invalid{border-color:#ff0033;box-shadow:0 0 5px rgba(255,0,51,0.3)}.tooltip{position:relative;cursor:help}.tooltip-content{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background-color:rgba(0,0,0,0.9);color:white;padding:0.5rem 0.75rem;border-radius:4px;font-size:0.875rem;white-space:nowrap;opacity:0;visibility:hidden;transition:all 0.3s ease;z-index:1000;pointer-events:none}.tooltip-content::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:rgba(0,0,0,0.9)}.tooltip:hover .tooltip-content{opacity:1;visibility:visible;transform:translateX(-50%) translateY(-5px)}.modal-header,.modal-content,.modal-footer{padding:1rem}.tooltip-content{position:fixed;bottom:auto;top:50%;left:1rem;right:1rem;transform:translateY(-50%);white-space:normal;text-align:center}.notification,.modal,.fade-in,.slide-in-left,.slide-in-right,.scale-in,.stagger-item,.magnetic-element,.tilt-element,.progress-fill,.loading-spinner,.tooltip-content{animation:none !important;transition:none !important}.typewriter{border-right:none}h1{font-size:3rem}.nav-toggle{display:block;cursor:pointer;z-index:1000}.nav-toggle span{display:block;width:25px;height:3px;background-color:var(--text-color);margin:5px 0;transition:all 0.3s ease}.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);background-color:var(--primary-color)}.nav-toggle.active span:nth-child(2){opacity:0}.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px);background-color:var(--primary-color)}.nav-links{position:fixed;top:0;left:-100%;width:100%;height:100vh;background:rgba(13,13,13,0.98);flex-direction:column;justify-content:center;align-items:center;gap:30px;transition:left 0.3s ease;z-index:999}.nav-links a{font-size:1.5rem;opacity:0;transform:translateY(20px);transition:opacity 0.3s ease,transform 0.3s ease}.nav-links.active{left:0}.nav-links.active a{opacity:1;transform:translateY(0)}h1{font-size:2.5rem}.experience-highlights{grid-template-columns:1fr;gap:30px}h1{font-size:2rem}.nav-brand{font-size:20px}.main-nav{padding:15px 20px}.btn-primary,.btn-secondary{width:100%;text-align:center}.hero{height:auto;min-height:100vh;padding:100px 0}.nav-links{height:auto;max-height:80vh;overflow-y:auto}.nav-links.active a:nth-child(1){transition-delay:0.1s}.nav-links.active a:nth-child(2){transition-delay:0.2s}.nav-links.active a:nth-child(3){transition-delay:0.3s}.nav-links.active a:nth-child(4){transition-delay:0.4s}.nav-links.active a:nth-child(5){transition-delay:0.5s}.nav-links.active a:nth-child(6){transition-delay:0.6s}.youtube-header{text-align:center;margin-bottom:2rem;padding:1.5rem;background:linear-gradient(135deg,rgba(255,0,51,0.1),rgba(0,255,255,0.1));border-radius:16px;border:1px solid rgba(255,0,51,0.2)}.youtube-header h2{font-family:'Orbitron',sans-serif;color:#ff0033;margin-bottom:1rem;font-size:2.2rem;text-shadow:0 0 15px rgba(255,0,51,0.6)}.youtube-channel-info p{color:#ccc;font-size:1.1rem;margin-bottom:1.5rem;font-style:italic}.youtube-subscribe-section p{color:#ff6666;font-size:1.1rem;margin-bottom:1rem;font-weight:500}#youtubeVideos li:hover{border-color:rgba(0,255,255,0.3);background:rgba(0,255,255,0.05)}.video-description{font-size:0.85rem;color:#aaa;margin:0.5rem 0 0 0;line-height:1.4;font-style:italic}.youtube-section,.more-videos{margin:3rem 0;padding:2rem;background:rgba(26,26,26,0.8);border-radius:16px;border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px)}.youtube-section h2,.more-videos h2{font-family:'Orbitron',sans-serif;color:#ff0033;margin-bottom:1.5rem;font-size:2rem;text-align:center}.video-info h3{color:#ff0033;font-family:'Orbitron',sans-serif;margin-bottom:0.5rem;font-size:1.3rem;text-shadow:0 0 10px rgba(255,0,51,0.5)}.video-info p{color:#ccc;margin-bottom:1rem;line-height:1.6;max-width:600px;margin-left:auto;margin-right:auto}.video-info h3{font-size:1.1rem}.video-info p{font-size:0.9rem}.youtube-section h2,.more-videos h2{font-size:1.5rem}.nav__toggle{display:flex !important;cursor:pointer;z-index:1000;background:none;border:none;padding:0.5rem;flex-direction:column}.nav__toggle-line{display:block;width:25px;height:3px;background-color:#00ffff;margin:3px 0;transition:all 0.3s ease;border-radius:2px}.nav__toggle--active .nav__toggle-line:nth-child(1){transform:rotate(45deg) translate(5px,5px);background-color:#ff0033}.nav__toggle--active .nav__toggle-line:nth-child(2){opacity:0}.nav__toggle--active .nav__toggle-line:nth-child(3){transform:rotate(-45deg) translate(7px,-6px);background-color:#ff0033}.nav__links{position:fixed !important;top:0;left:-100%;width:100%;height:100vh;background:rgba(13,13,13,0.98);backdrop-filter:blur(10px);flex-direction:column;justify-content:center;align-items:center;gap:30px;transition:left 0.3s ease;z-index:999;list-style:none;margin:0;padding:0}.nav__links--active{left:0 !important}.nav__links li{opacity:0;transform:translateY(20px);transition:opacity 0.3s ease,transform 0.3s ease}.nav__links--active li{opacity:1;transform:translateY(0)}.nav__link{font-size:1.5rem !important;color:#fff;text-decoration:none;padding:1rem 2rem;border-radius:8px;transition:all 0.3s ease;display:block;text-align:center;width:200px}.nav__link:hover,.nav__link:focus{color:#00ffff;background:rgba(0,255,255,0.1);text-shadow:0 0 8px rgba(0,255,255,0.6)}.hero{min-height:70vh !important;padding:3rem 1rem !important}.hero__title{font-size:2.2rem !important;line-height:1.2;margin-bottom:1rem}.hero__tagline{font-size:1.1rem !important;margin-bottom:2rem}.overlay{padding:2rem 1rem !important;margin:1rem !important;border-radius:15px}.btn-primary,.btn-secondary{width:100% !important;max-width:280px;text-align:center;padding:1rem 1.5rem;font-size:0.95rem}main{padding:1rem !important}section h2{font-size:1.8rem !important;text-align:center;margin-bottom:1.5rem}.about-hero{flex-direction:column !important;text-align:center !important;gap:1.5rem !important}.about-details h2{text-align:center !important;font-size:1.4rem !important;margin:1.5rem 0 1rem 0}.about-details p{text-align:left;line-height:1.6;margin-bottom:1.5rem}.ai-chat{padding:1.5rem !important}.nav__links--active li:nth-child(1){transition-delay:0.1s}.nav__links--active li:nth-child(2){transition-delay:0.2s}.nav__links--active li:nth-child(3){transition-delay:0.3s}.nav__links--active li:nth-child(4){transition-delay:0.4s}.nav__links--active li:nth-child(5){transition-delay:0.5s}.nav__links--active li:nth-child(6){transition-delay:0.6s}.nav__links--active li:nth-child(7){transition-delay:0.7s}.nav{padding:1rem !important}.nav__brand{font-size:1.2rem !important}.nav__logo{height:35px !important}.hero__title{font-size:1.8rem !important}.hero__tagline{font-size:1rem !important}.overlay{padding:1.5rem 1rem !important;margin:0.5rem !important}.btn-primary,.btn-secondary{padding:0.75rem 1.5rem !important;font-size:0.9rem !important}.about-image{width:180px !important;height:180px !important}.about-details h2{font-size:1.2rem !important}.music-section h1{font-size:1.8rem !important}.hero{min-height:100vh !important;padding:60px 1rem !important}.nav__links{padding-top:60px !important;max-height:80vh;overflow-y:auto}.overlay{padding:1.5rem 1rem !important}.hero__title{font-size:2rem !important}.nav__link:hover{color:#fff;background:transparent;text-shadow:none}.nav__link:active{color:#00ffff;background:rgba(0,255,255,0.1)}.btn-primary:hover,.btn-secondary:hover{transform:none}.btn-primary:active,.btn-secondary:active{transform:scale(0.98)}body.nav-open{overflow:hidden}.nav{position:sticky !important;top:0;z-index:1000;background:rgba(17,17,17,0.95) !important;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,0,51,0.3)}</style>
+
+    <link rel="preload" href="dist/css/main.046071bd.css" as="style">
+    <link rel="stylesheet" href="dist/css/main.046071bd.css">
+  <link rel="canonical" href="https://baddbeatz.com/live.html">
+  <meta name="author" content="TheBadGuyHimself">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#00ffff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "TheBadGuyHimself",
+  "alternateName": "BaddBeatz",
+  "url": "https://baddbeatz.com",
+  "image": "https://baddbeatz.com/assets/images/TBG-himself.jpeg",
+  "logo": "https://baddbeatz.com/assets/images/Logo.png",
+  "description": "Professional DJ specializing in underground techno, hardstyle, and electronic music across Europe",
+  "genre": [
+    "Electronic",
+    "Techno",
+    "Hardstyle",
+    "House",
+    "Hardcore"
+  ],
+  "foundingDate": "2020",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Europe"
+  },
+  "member": {
+    "@type": "Person",
+    "name": "TheBadGuyHimself",
+    "url": "https://baddbeatz.com/about.html",
+    "jobTitle": "DJ/Producer"
+  },
+  "sameAs": [
+    "https://soundcloud.com/thebadguyhimself",
+    "https://www.youtube.com/@TheBadGuyHimself",
+    "https://www.facebook.com/thebadguyhimself",
+    "https://www.instagram.com/thebadguyhimself",
+    "https://twitter.com/thebadguyhimself",
+    "https://www.tiktok.com/@thebadguyhimself"
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "MusicEvent",
+  "name": "BaddBeatz Live Stream",
+  "performer": {
+    "@type": "MusicGroup",
+    "name": "TheBadGuyHimself"
+  },
+  "description": "Live electronic music streaming with real-time interaction",
+  "url": "https://baddbeatz.com/live.html",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "location": {
+    "@type": "VirtualLocation",
+    "url": "https://baddbeatz.com/live.html"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://baddbeatz.com/live.html"
+  },
+  "organizer": {
+    "@type": "MusicGroup",
+    "name": "TheBadGuyHimself",
+    "url": "https://baddbeatz.com"
+  }
+}</script>
+  <link rel="manifest" href="/manifest.json">
+  <script defer src="/assets/js/pwa-init.js"></script>
+  <link rel="apple-touch-icon" href="/assets/images/icon-192x192.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="nav">
+            <div class="nav__brand">
+                <img src="assets/images/Logo.png" alt="BaddBeatz Logo" class="nav__logo">
+            </div>
+            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+            </button>
+            <ul class="nav__links">
+                <li><a class="nav__link" href="index.html">Home</a></li>
+                <li><a class="nav__link" href="about.html">About</a></li>
+                <li><a class="nav__link" href="music.html">Music</a></li>
+                <li><a class="nav__link nav__link--active" href="live.html">🔴 Live</a></li>
+                <li><a class="nav__link" href="playlist.html">Playlist</a></li>
+                <li><a class="nav__link" href="video.html">Videos</a></li>
+                <li><a class="nav__link" href="gallery.html">Gallery</a></li>
+                <li><a class="nav__link" href="bookings.html">Bookings</a></li>
+                <li><a class="nav__link" href="contact.html">Contact</a></li>
+                <li><a class="nav__link nav__link--login" href="login.html">🎵 Join Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero--live">
+        <div class="hero-bg-live">
+            <div class="live-particles"></div>
+        </div>
+        <div class="overlay">
+            <h1 class="hero__title">
+                <span class="live-pulse">🔴</span>
+                LIVE ELECTRONIC EXPERIENCE
+            </h1>
+            <p class="hero__tagline">Real-time DJ sets • Interactive chat • European electronic music community</p>
+            <div class="live-status" id="live-status">
+                <div class="status-indicator offline" id="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Currently Offline</span>
+                </div>
+                <div class="next-stream" id="next-stream">
+                    Next stream: Loading...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Live Stream Section -->
+        <section class="live-stream-section">
+            <div class="container">
+                <div class="stream-header">
+                    <h2>🎧 Live DJ Performance</h2>
+                    <div class="stream-platforms">
+                        <button class="platform-btn active" data-platform="twitch">
+                            <span class="platform-icon">📺</span>
+                            Twitch
+                        </button>
+                        <button class="platform-btn" data-platform="youtube">
+                            <span class="platform-icon">▶️</span>
+                            YouTube
+                        </button>
+                        <button class="platform-btn" data-platform="facebook">
+                            <span class="platform-icon">📘</span>
+                            Facebook
+                        </button>
+                        <button class="platform-btn" data-platform="tiktok">
+                            <span class="platform-icon">🎵</span>
+                            TikTok
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Stream Container -->
+                <div class="stream-layout">
+                    <div class="stream-main">
+                        <div id="live-stream-container">
+                            <!-- Stream will be loaded here -->
+                            <div class="stream-placeholder">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🎵</div>
+                                    <h3>Stream Starting Soon</h3>
+                                    <p>Get ready for an epic electronic music journey!</p>
+                                    <button class="btn-primary" onclick="testStream()">🔴 Start Demo Stream</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stream Controls -->
+                        <div class="stream-controls">
+                            <div class="control-group">
+                                <button class="control-btn" id="quality-btn" title="Stream Quality">
+                                    <span class="control-icon">⚙️</span>
+                                    Auto
+                                </button>
+                                <button class="control-btn" id="fullscreen-btn" title="Fullscreen">
+                                    <span class="control-icon">⛶</span>
+                                </button>
+                                <button class="control-btn" id="share-btn" title="Share Stream">
+                                    <span class="control-icon">🔗</span>
+                                </button>
+                            </div>
+                            <div class="stream-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">👥</span>
+                                    <span id="live-viewers">0</span> viewers
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⏱️</span>
+                                    <span id="stream-duration">00:00</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Sidebar -->
+                    <div class="stream-sidebar">
+                        <!-- Social Media Login Section -->
+                        <div class="social-login-section">
+                            <div class="social-login-header">
+                                <h4>🔗 Connect & Interact</h4>
+                                <p>Login with your social media to chat and interact</p>
+                            </div>
+                            
+                            <div class="social-login-buttons">
+                                <button class="social-login-btn twitch-login" onclick="loginWithTwitch()">
+                                    <span class="social-icon">📺</span>
+                                    <div class="login-text">
+                                        <span class="platform-name">Twitch</span>
+                                        <span class="login-subtitle">Chat & Follow</span>
+                                    </div>
+                                </button>
+                                
+                                <button class="social-login-btn youtube-login" onclick="loginWithYouTube()">
+                                    <span class="social-icon">▶️</span>
+                                    <div class="login-text">
+                                        <span class="platform-name">YouTube</span>
+                                        <span class="login-subtitle">Subscribe & Comment</span>
+                                    </div>
+                                </button>
+                                
+                                <button class="social-login-btn facebook-login" onclick="loginWithFacebook()">
+                                    <span class="social-icon">📘</span>
+                                    <div class="login-text">
+                                        <span class="platform-name">Facebook</span>
+                                        <span class="login-subtitle">Like & Share</span>
+                                    </div>
+                                </button>
+                                
+                                <button class="social-login-btn tiktok-login" onclick="loginWithTikTok()">
+                                    <span class="social-icon">🎵</span>
+                                    <div class="login-text">
+                                        <span class="platform-name">TikTok</span>
+                                        <span class="login-subtitle">Follow & React</span>
+                                    </div>
+                                </button>
+                            </div>
+                            
+                            <!-- Connected Accounts Display -->
+                            <div id="connected-accounts" class="connected-accounts" style="display: none;">
+                                <h5>✅ Connected Accounts</h5>
+                                <div id="connected-list"></div>
+                                <button class="btn-small disconnect-all" onclick="disconnectAll()">
+                                    Disconnect All
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="live-chat-container">
+                            <!-- Chat will be loaded here -->
+                            <div class="chat-placeholder">
+                                <div class="chat-header">
+                                    <h4>💬 Live Chat</h4>
+                                    <div class="chat-controls">
+                                        <button class="btn-small">Settings</button>
+                                    </div>
+                                </div>
+                                <div class="chat-welcome">
+                                    <p>🎵 Welcome to the BaddBeatz community!</p>
+                                    <p>Connect with your social media accounts above to participate in chat!</p>
+                                    <p>Join the conversation and request your favorite tracks!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stream Schedule -->
+        <section class="schedule-section">
+            <div class="container">
+                <h2>📅 Upcoming Live Streams</h2>
+                <p class="schedule-subtitle">All times shown in Central European Time (CET/CEST)</p>
+                
+                <div id="stream-schedule">
+                    <!-- Schedule will be loaded here -->
+                    <div class="schedule-loading">
+                        <div class="loading-spinner"></div>
+                        <p>Loading stream schedule...</p>
+                    </div>
+                </div>
+
+                <div class="schedule-actions">
+                    <button class="btn-secondary" onclick="requestNotifications()">
+                        🔔 Enable Stream Notifications
+                    </button>
+                    <button class="btn-secondary" onclick="addToCalendar()">
+                        📅 Add to Calendar
+                    </button>
+                    <button class="btn-primary" href="bookings.html">
+                        📩 Book Private Stream
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Genre Showcase -->
+        <section class="genre-showcase">
+            <div class="container">
+                <h2>🎵 Electronic Music Genres</h2>
+                <p>Experience the full spectrum of European electronic music</p>
+                
+                <div class="genre-grid">
+                    <div class="genre-card" data-genre="house">
+                        <div class="genre-icon">🏠</div>
+                        <h3>House</h3>
+                        <p>120-130 BPM</p>
+                        <div class="genre-waveform house-wave"></div>
+                    </div>
+                    
+                    <div class="genre-card" data-genre="techno">
+                        <div class="genre-icon">⚡</div>
+                        <h3>Techno</h3>
+                        <p>130-150 BPM</p>
+                        <div class="genre-waveform techno-wave"></div>
+                    </div>
+                    
+                    <div class="genre-card" data-genre="hard-techno">
+                        <div class="genre-icon">🔥</div>
+                        <h3>Hard Techno</h3>
+                        <p>140-160 BPM</p>
+                        <div class="genre-waveform hard-techno-wave"></div>
+                    </div>
+                    
+                    <div class="genre-card" data-genre="rawstyle">
+                        <div class="genre-icon">💀</div>
+                        <h3>Rawstyle</h3>
+                        <p>150-180 BPM</p>
+                        <div class="genre-waveform rawstyle-wave"></div>
+                    </div>
+                    
+                    <div class="genre-card" data-genre="hardcore">
+                        <div class="genre-icon">💥</div>
+                        <h3>Hardcore</h3>
+                        <p>160-200 BPM</p>
+                        <div class="genre-waveform hardcore-wave"></div>
+                    </div>
+                    
+                    <div class="genre-card" data-genre="uptempo">
+                        <div class="genre-icon">🚀</div>
+                        <h3>Uptempo</h3>
+                        <p>180+ BPM</p>
+                        <div class="genre-waveform uptempo-wave"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Features -->
+        <section class="community-features">
+            <div class="container">
+                <h2>🌟 Interactive Features</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3>Real-time Chat</h3>
+                        <p>Connect with fellow electronic music fans from across Europe during live streams</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎵</div>
+                        <h3>Track Requests</h3>
+                        <p>Request your favorite tracks and vote on others' suggestions during live sets</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Live Stats</h3>
+                        <p>See real-time BPM, track info, and crowd energy levels during performances</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔔</div>
+                        <h3>Smart Notifications</h3>
+                        <p>Get notified 15 minutes before your favorite DJ goes live</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Interactive Games</h3>
+                        <p>Play beat matching games and music trivia during stream breaks</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Community Rewards</h3>
+                        <p>Earn badges and unlock exclusive content through active participation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Experience Live Electronic Music?</h2>
+                    <p>Join thousands of electronic music fans across Europe for unforgettable live DJ experiences</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="login.html" class="btn-primary">
+                            🎵 Join Community
+                        </a>
+                        <a href="bookings.html" class="btn-secondary">
+                            📩 Book Private Stream
+                        </a>
+                    </div>
+                    
+                    <div class="social-proof">
+                        <div class="proof-item">
+                            <strong>10,000+</strong>
+                            <span>Active Community Members</span>
+                        </div>
+                        <div class="proof-item">
+                            <strong>500+</strong>
+                            <span>Hours Streamed</span>
+                        </div>
+                        <div class="proof-item">
+                            <strong>25+</strong>
+                            <span>European Cities Reached</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Live Streaming</h4>
+                    <ul>
+                        <li><a href="#stream-schedule">Stream Schedule</a></li>
+                        <li><a href="bookings.html">Private Streams</a></li>
+                        <li><a href="#notifications">Notifications</a></li>
+                        <li><a href="login.html">Community Access</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Platforms</h4>
+                    <ul>
+                        <li><a href="https://twitch.tv/thebadguyhimself" target="_blank">Twitch</a></li>
+                        <li><a href="https://youtube.com/@TheBadGuyHimself" target="_blank">YouTube Live</a></li>
+                        <li><a href="#" target="_blank">Facebook Live</a></li>
+                        <li><a href="https://tiktok.com/@thebadguyhimself" target="_blank">TikTok Live</a></li>
+                        <li><a href="https://soundcloud.com/thebadguyhimself" target="_blank">SoundCloud</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Technical Support</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Streaming Guidelines</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 TheBadGuyHimself - BaddBeatz. All rights reserved.</p>
+                <p>🎵 Bringing European electronic music to the world, one beat at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Demo Stream Script -->
+    <script>
+        // Demo functionality for testing
+        function testStream() {
+            const streamData = {
+                id: 'demo-stream',
+                title: 'Friday Night Techno Session - LIVE',
+                djName: 'TheBadGuyHimself',
+                genre: 'Techno',
+                startTime: new Date().toISOString(),
+                channel: 'thebadguyhimself'
+            };
+            
+            // Simulate stream start
+            document.dispatchEvent(new CustomEvent('streamStart', {
+                detail: {
+                    platform: 'twitch',
+                    streamData: streamData
+                }
+            }));
+            
+            // Update live status
+            const statusIndicator = document.getElementById('status-indicator');
+            const statusText = statusIndicator.querySelector('.status-text');
+            statusIndicator.className = 'status-indicator live';
+            statusText.textContent = 'LIVE NOW';
+        }
+        
+        function requestNotifications() {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        new Notification('🔔 Stream notifications enabled!', {
+                            body: 'You\'ll be notified before live streams start.',
+                            icon: 'assets/images/Logo.png'
+                        });
+                    }
+                });
+            }
+        }
+        
+        function addToCalendar() {
+            // Generate calendar event
+            const event = {
+                title: 'BaddBeatz Live Stream',
+                start: new Date(Date.now() + 24 * 60 * 60 * 1000), // Tomorrow
+                duration: 2 * 60 * 60 * 1000, // 2 hours
+                description: 'Live electronic music stream with TheBadGuyHimself'
+            };
+            
+            alert('Calendar integration coming soon! 📅');
+        }
+        
+        // Social Media Login Functions
+        let connectedAccounts = [];
+        
+        function loginWithTwitch() {
+            // Simulate Twitch OAuth login
+            const twitchAuth = {
+                platform: 'twitch',
+                username: 'TechnoFan2024',
+                avatar: '📺',
+                permissions: ['chat', 'follow', 'subscribe']
+            };
+            
+            connectAccount(twitchAuth);
+            showLoginSuccess('Twitch', 'You can now chat and follow on Twitch!');
+        }
+        
+        function loginWithYouTube() {
+            // Simulate YouTube OAuth login
+            const youtubeAuth = {
+                platform: 'youtube',
+                username: 'ElectronicMusicLover',
+                avatar: '▶️',
+                permissions: ['comment', 'subscribe', 'like']
+            };
+            
+            connectAccount(youtubeAuth);
+            showLoginSuccess('YouTube', 'You can now comment and subscribe on YouTube!');
+        }
+        
+        function loginWithFacebook() {
+            // Simulate Facebook OAuth login
+            const facebookAuth = {
+                platform: 'facebook',
+                username: 'DJ Music Fan',
+                avatar: '📘',
+                permissions: ['like', 'share', 'comment']
+            };
+            
+            connectAccount(facebookAuth);
+            showLoginSuccess('Facebook', 'You can now like and share on Facebook!');
+        }
+        
+        function loginWithTikTok() {
+            // Simulate TikTok OAuth login
+            const tiktokAuth = {
+                platform: 'tiktok',
+                username: 'BeatDropper',
+                avatar: '🎵',
+                permissions: ['follow', 'like', 'comment']
+            };
+            
+            connectAccount(tiktokAuth);
+            showLoginSuccess('TikTok', 'You can now follow and react on TikTok!');
+        }
+        
+        function connectAccount(authData) {
+            // Add to connected accounts
+            connectedAccounts.push(authData);
+            
+            // Update UI
+            updateConnectedAccountsDisplay();
+            updateLoginButtonState(authData.platform, true);
+            
+            // Enable chat functionality
+            enableChatForPlatform(authData.platform);
+        }
+        
+        function updateConnectedAccountsDisplay() {
+            const connectedSection = document.getElementById('connected-accounts');
+            const connectedList = document.getElementById('connected-list');
+            
+            if (connectedAccounts.length > 0) {
+                connectedSection.style.display = 'block';
+                
+                connectedList.innerHTML = connectedAccounts.map(account => `
+                    <div class="connected-account">
+                        <span class="account-avatar">${account.avatar}</span>
+                        <div class="account-info">
+                            <span class="account-platform">${account.platform.charAt(0).toUpperCase() + account.platform.slice(1)}</span>
+                            <span class="account-username">@${account.username}</span>
+                        </div>
+                        <button class="btn-tiny disconnect-btn" onclick="disconnectAccount('${account.platform}')">
+                            ✕
+                        </button>
+                    </div>
+                `).join('');
+            } else {
+                connectedSection.style.display = 'none';
+            }
+        }
+        
+        function updateLoginButtonState(platform, connected) {
+            const button = document.querySelector(`.${platform}-login`);
+            if (connected) {
+                button.classList.add('connected');
+                button.innerHTML = `
+                    <span class="social-icon">✅</span>
+                    <div class="login-text">
+                        <span class="platform-name">${platform.charAt(0).toUpperCase() + platform.slice(1)}</span>
+                        <span class="login-subtitle">Connected</span>
+                    </div>
+                `;
+                button.disabled = true;
+            }
+        }
+        
+        function disconnectAccount(platform) {
+            connectedAccounts = connectedAccounts.filter(account => account.platform !== platform);
+            updateConnectedAccountsDisplay();
+            
+            // Reset login button
+            const button = document.querySelector(`.${platform}-login`);
+            button.classList.remove('connected');
+            button.disabled = false;
+            
+            // Restore original button content
+            const platformData = {
+                twitch: { icon: '📺', subtitle: 'Chat & Follow' },
+                youtube: { icon: '▶️', subtitle: 'Subscribe & Comment' },
+                facebook: { icon: '📘', subtitle: 'Like & Share' },
+                tiktok: { icon: '🎵', subtitle: 'Follow & React' }
+            };
+            
+            const data = platformData[platform];
+            button.innerHTML = `
+                <span class="social-icon">${data.icon}</span>
+                <div class="login-text">
+                    <span class="platform-name">${platform.charAt(0).toUpperCase() + platform.slice(1)}</span>
+                    <span class="login-subtitle">${data.subtitle}</span>
+                </div>
+            `;
+            
+            showLoginSuccess(platform.charAt(0).toUpperCase() + platform.slice(1), 'Account disconnected successfully!');
+        }
+        
+        function disconnectAll() {
+            connectedAccounts = [];
+            updateConnectedAccountsDisplay();
+            
+            // Reset all login buttons
+            document.querySelectorAll('.social-login-btn').forEach(button => {
+                button.classList.remove('connected');
+                button.disabled = false;
+            });
+            
+            // Restore original button content for all platforms
+            loginWithTwitch = () => loginWithTwitch();
+            location.reload(); // Simple way to reset all buttons
+        }
+        
+        function enableChatForPlatform(platform) {
+            // Update chat welcome message
+            const chatWelcome = document.querySelector('.chat-welcome');
+            chatWelcome.innerHTML = `
+                <p>🎵 Welcome to the BaddBeatz community!</p>
+                <p>✅ Connected to ${platform.charAt(0).toUpperCase() + platform.slice(1)}! You can now participate in chat!</p>
+                <p>Join the conversation and request your favorite tracks!</p>
+                <div class="chat-actions">
+                    <button class="btn-small" onclick="sendTestMessage('${platform}')">
+                        💬 Send Test Message
+                    </button>
+                    <button class="btn-small" onclick="requestTrack()">
+                        🎵 Request Track
+                    </button>
+                </div>
+            `;
+        }
+        
+        function sendTestMessage(platform) {
+            alert(`💬 Test message sent via ${platform.charAt(0).toUpperCase() + platform.slice(1)}!\n\n"Hello from the BaddBeatz community! 🎵"`);
+        }
+        
+        function requestTrack() {
+            const track = prompt('🎵 What track would you like to request?');
+            if (track) {
+                alert(`🎵 Track request submitted: "${track}"\n\nThe DJ will consider your request during the next set!`);
+            }
+        }
+        
+        function showLoginSuccess(platform, message) {
+            // Create success notification
+            const notification = document.createElement('div');
+            notification.className = 'login-notification success';
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-icon">✅</span>
+                    <div class="notification-text">
+                        <strong>${platform} Connected!</strong>
+                        <p>${message}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add platform switching functionality
+            document.querySelectorAll('.platform-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+            
+            // Add genre card interactions
+            document.querySelectorAll('.genre-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const genre = card.dataset.genre;
+                    alert(`🎵 ${genre.charAt(0).toUpperCase() + genre.slice(1)} music coming up in future streams!`);
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Additional styles for live page */
+        .hero--live {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg-live {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 0, 255, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(0, 255, 255, 0.3) 0%, transparent 50%);
+        }
+        
+        .live-pulse {
+            animation: pulse 2s infinite;
+            display: inline-block;
+        }
+        
+        .live-status {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .status-indicator.offline {
+            background: rgba(128, 128, 128, 0.2);
+            border: 1px solid rgba(128, 128, 128, 0.5);
+            color: #ccc;
+        }
+        
+        .status-indicator.live {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            color: #ff4444;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+        
+        .stream-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .stream-platforms {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .platform-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .platform-btn.active,
+        .platform-btn:hover {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            color: #000;
+            border-color: transparent;
+        }
+        
+        .stream-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+        }
+        
+        .stream-placeholder {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px dashed rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .placeholder-content {
+            text-align: center;
+            color: #fff;
+        }
+        
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stream-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .control-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background: rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+        }
+        
+        .stream-stats {
+            display: flex;
+            gap: 1rem;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .chat-welcome {
+            padding: 2rem;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        .schedule-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4rem 0;
+        }
+        
+        .schedule-subtitle {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+        
+        .schedule-loading {
+            text-align: center;
+            padding: 2rem;
+            color: #ccc;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(0, 255, 255, 0.3);
+            border-top: 3px solid #00ffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .schedule-actions {
+            text-align: center;
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .genre-showcase {
+            padding: 4rem 0;
+        }
+        
+        .genre-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .genre-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .genre-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ffff;
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+        }
+        
+        .genre-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .genre-waveform {
+            height: 30px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            margin-top: 1rem;
+            border-radius: 15px;
+            opacity: 0.7;
+        }
+        
+        .community-features {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-buttons {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .social-proof {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .proof-item {
+            text-align: center;
+        }
+        
+        .proof-item strong {
+            display: block;
+            font-size: 2rem;
+            color: #00ffff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .proof-item span {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Social Media Login Styles */
+        .social-login-section {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-login-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-login-header h4 {
+            color: #00ffff;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .social-login-header p {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        .social-login-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .social-login-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #fff;
+            text-align: left;
+        }
+        
+        .social-login-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(0, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .social-login-btn.connected {
+            background: rgba(0, 255, 0, 0.1);
+            border-color: rgba(0, 255, 0, 0.5);
+            cursor: default;
+        }
+        
+        .social-login-btn.connected:hover {
+            transform: none;
+        }
+        
+        .social-login-btn .social-icon {
+            font-size: 1.5rem;
+            min-width: 24px;
+        }
+        
+        .login-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .platform-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .login-subtitle {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+        
+        .connected-accounts {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .connected-accounts h5 {
+            color: #00ff00;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .connected-account {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .account-avatar {
+            font-size: 1.2rem;
+        }
+        
+        .account-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .account-platform {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #00ff00;
+        }
+        
+        .account-username {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+        
+        .disconnect-btn {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            color: #ff4444;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .disconnect-btn:hover {
+            background: rgba(255, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .disconnect-all {
+            margin-top: 1rem;
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            color: #ff4444;
+        }
+        
+        .disconnect-all:hover {
+            background: rgba(255, 0, 0, 0.3);
+        }
+        
+        .chat-actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .chat-actions .btn-small {
+            background: rgba(0, 255, 255, 0.2);
+            border: 1px solid rgba(0, 255, 255, 0.5);
+            color: #00ffff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-actions .btn-small:hover {
+            background: rgba(0, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Login Notification Styles */
+        .login-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(0, 255, 0, 0.5);
+            border-radius: 10px;
+            padding: 1rem;
+            max-width: 300px;
+            z-index: 1000;
+            animation: slideInRight 0.3s ease;
+        }
+        
+        .login-notification.success {
+            border-color: rgba(0, 255, 0, 0.5);
+            background: rgba(0, 255, 0, 0.1);
+        }
+        
+        .notification-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .notification-icon {
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
+        }
+        
+        .notification-text {
+            flex: 1;
+        }
+        
+        .notification-text strong {
+            color: #00ff00;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .notification-text p {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Platform-specific button colors */
+        .twitch-login:hover {
+            border-color: rgba(145, 70, 255, 0.8);
+            background: rgba(145, 70, 255, 0.1);
+        }
+        
+        .youtube-login:hover {
+            border-color: rgba(255, 0, 0, 0.8);
+            background: rgba(255, 0, 0, 0.1);
+        }
+        
+        .facebook-login:hover {
+            border-color: rgba(24, 119, 242, 0.8);
+            background: rgba(24, 119, 242, 0.1);
+        }
+        
+        .tiktok-login:hover {
+            border-color: rgba(255, 0, 80, 0.8);
+            background: rgba(255, 0, 80, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stream-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .stream-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .social-proof {
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .login-notification {
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+            
+            .chat-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
