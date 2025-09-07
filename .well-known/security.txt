@@ -1,0 +1,8 @@
+# BaddBeatz Security Policy
+# https://baddbeatz.com/.well-known/security.txt
+
+Contact: security@baddbeatz.com
+Expires: 2026-07-22T14:49:37.135Z
+Preferred-Languages: en, de
+Canonical: https://baddbeatz.com/.well-known/security.txt
+Policy: https://baddbeatz.com/security-policy.html
