@@ -1,0 +1,39 @@
+{
+  "name": "baddbeatz-streaming-app",
+  "version": "1.0.0",
+  "description": "BaddBeatz Multi-Platform DJ Streaming Application",
+  "main": "obs-integration.js",
+  "scripts": {
+    "start": "node obs-integration.js",
+    "dev": "nodemon obs-integration.js",
+    "web": "node web-controller.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "streaming",
+    "dj",
+    "obs",
+    "twitch",
+    "youtube",
+    "facebook",
+    "tiktok",
+    "electronic-music"
+  ],
+  "author": "BaddBeatz",
+  "license": "MIT",
+  "dependencies": {
+    "obs-websocket-js": "^4.0.3",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.6.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
