@@ -1,0 +1,58 @@
+# wrangler.toml
+# Clean, conflict-free configuration aligned with Cloudflare Pages for prod and Workers for local/dev
+
+name = "baddbeatz"
+main = "workers-site/index.js"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "docs"
+
+# Static site bucket used for local Workers preview/dev
+[site]
+bucket = "./docs"
+include = ["**/*"]
+exclude = [
+  "node_modules/**",
+  ".git/**",
+  ".github/**",
+  "scripts/**",
+  "tests/**",
+  "__pycache__/**",
+  "*.md",
+  "*.py",
+  "requirements*.txt",
+  ".env*",
+  "temp_venv/**"
+]
+
+# KV namespace (kept from existing config)
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "61eafb449cdd4ea98a8faba809a5145f"
+preview_id = "00000000000000000000000000000000"
+
+# Define runtime variables via `wrangler secret` or CI.
+[vars]
+
+[observability.logs]
+enabled = true
+
+# Development environment (workers.dev)
+[env.development]
+name = "baddbeatz-dev"
+workers_dev = true
+
+# Mirror top-level vars for environment parity (top-level are not inherited)
+[env.development.vars]
+
+# Mirror KV namespaces for development (top-level kv_namespaces are not inherited)
+[[env.development.kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "61eafb449cdd4ea98a8faba809a5145f"
+preview_id = "00000000000000000000000000000000"
+
+# Production environment (Workers routes) REMOVED to avoid conflicts with Cloudflare Pages.
+# We deploy the static site via "wrangler pages deploy" and attach the custom
+# domain in the Pages project. Keeping Worker routes on apex/www would clash
+# with Pages' custom domain routing. If you later need a separate Worker (e.g.
+# for an API on a subdomain like api.baddbeatz.nl), define that Worker and its
+# subdomain-specific route in a separate wrangler config or environment.
