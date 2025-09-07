@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: baddbeatz
+  labels:
+    name: baddbeatz
+    environment: production
+    app: baddbeatz-platform
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: baddbeatz-quota
+  namespace: baddbeatz
+spec:
+  hard:
+    requests.cpu: "10"
+    requests.memory: 20Gi
+    limits.cpu: "20"
+    limits.memory: 40Gi
+    persistentvolumeclaims: "10"
+    services: "20"
+    secrets: "20"
+    configmaps: "20"
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: baddbeatz-limits
+  namespace: baddbeatz
+spec:
+  limits:
+  - default:
+      cpu: "1000m"
+      memory: "2Gi"
+    defaultRequest:
+      cpu: "100m"
+      memory: "256Mi"
+    type: Container
