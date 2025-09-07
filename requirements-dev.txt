@@ -1,0 +1,6 @@
+-c constraints.txt
+-r requirements.txt
+pylint
+pytest
+pytest-cov
+requests_mock
