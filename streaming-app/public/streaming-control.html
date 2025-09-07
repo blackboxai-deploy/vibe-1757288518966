@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaddBeatz Streaming Control Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #666;
+        }
+
+        .status-dot.connected {
+            background: #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .status-dot.streaming {
+            background: #ff0000;
+            box-shadow: 0 0 10px #ff0000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .control-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .control-panel {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .control-panel h3 {
+            color: #ff00ff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .platform-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            border-color: #00ffff;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .platform-card.enabled {
+            border-color: #00ff00;
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        .platform-card.streaming {
+            border-color: #ff0000;
+            background: rgba(255, 0, 0, 0.1);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            border: none;
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00ffff;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .bpm-display {
+            font-size: 3rem;
+            text-align: center;
+            color: #00ffff;
+            margin: 20px 0;
+            text-shadow: 0 0 20px #00ffff;
+        }
+
+        .track-info {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .scene-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .log-panel {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .log-entry.info { color: #00ffff; }
+        .log-entry.success { color: #00ff00; }
+        .log-entry.error { color: #ff0000; }
+        .log-entry.warning { color: #ffff00; }
+
+        @media (max-width: 768px) {
+            .control-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎛️ BaddBeatz Streaming Control Panel</h1>
+            <p>Multi-Platform DJ Streaming Controller</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-item">
+                <div class="status-dot" id="obs-status"></div>
+                <span>OBS Studio</span>
+            </div>
+            <div class="status-item">
+                <div class="status-dot" id="stream-status"></div>
+                <span>Streaming</span>
+            </div>
+            <div class="status-item">
+                <span id="current-bpm">-- BPM</span>
+            </div>
+            <div class="status-item">
+                <span id="viewer-count">0 viewers</span>
+            </div>
+        </div>
+
+        <div class="control-grid">
+            <!-- Platform Control -->
+            <div class="control-panel">
+                <h3>🌐 Platform Control</h3>
+                <div class="platform-grid">
+                    <div class="platform-card" data-platform="twitch">
+                        <h4>📺 Twitch</h4>
+                        <p class="viewer-count">0 viewers</p>
+                    </div>
+                    <div class="platform-card" data-platform="youtube">
+                        <h4>▶️ YouTube</h4>
+                        <p class="viewer-count">0 viewers</p>
+                    </div>
+                    <div class="platform-card" data-platform="facebook">
+                        <h4>📘 Facebook</h4>
+                        <p class="viewer-count">0 viewers</p>
+                    </div>
+                    <div class="platform-card" data-platform="tiktok">
+                        <h4>🎵 TikTok</h4>
+                        <p class="viewer-count">0 viewers</p>
+                    </div>
+                </div>
+                <button class="btn" id="connect-obs">Connect to OBS</button>
+                <button class="btn" id="start-stream" disabled>Start Stream</button>
+                <button class="btn btn-secondary" id="stop-stream" disabled>Stop Stream</button>
+            </div>
+
+            <!-- Track Control -->
+            <div class="control-panel">
+                <h3>🎵 Track Control</h3>
+                <div class="bpm-display" id="bpm-display">-- BPM</div>
+                <div class="track-info" id="track-info">
+                    <strong>No track playing</strong>
+                </div>
+                <div class="input-group">
+                    <label>BPM</label>
+                    <input type="number" id="bpm-input" min="60" max="200" placeholder="Enter BPM">
+                </div>
+                <div class="input-group">
+                    <label>Artist</label>
+                    <input type="text" id="artist-input" placeholder="Artist name">
+                </div>
+                <div class="input-group">
+                    <label>Track Title</label>
+                    <input type="text" id="title-input" placeholder="Track title">
+                </div>
+                <div class="input-group">
+                    <label>Genre</label>
+                    <select id="genre-input">
+                        <option value="">Select genre</option>
+                        <option value="House">House</option>
+                        <option value="Techno">Techno</option>
+                        <option value="Hard Techno">Hard Techno</option>
+                        <option value="Rawstyle">Rawstyle</option>
+                        <option value="Hardcore">Hardcore</option>
+                        <option value="Uptempo">Uptempo</option>
+                    </select>
+                </div>
+                <button class="btn" id="update-track">Update Track Info</button>
+            </div>
+        </div>
+
+        <!-- Scene Control -->
+        <div class="control-panel">
+            <h3>🎬 Scene Control</h3>
+            <div class="scene-buttons">
+                <button class="btn btn-secondary scene-btn" data-scene="DJ Performance">DJ Performance</button>
+                <button class="btn btn-secondary scene-btn" data-scene="Track Transition">Track Transition</button>
+                <button class="btn btn-secondary scene-btn" data-scene="Chat Interaction">Chat Interaction</button>
+                <button class="btn btn-secondary scene-btn" data-scene="BPM Display">BPM Display</button>
+                <button class="btn btn-secondary scene-btn" data-scene="Genre Showcase">Genre Showcase</button>
+            </div>
+        </div>
+
+        <!-- Activity Log -->
+        <div class="control-panel">
+            <h3>📋 Activity Log</h3>
+            <div class="log-panel" id="activity-log">
+                <div class="log-entry info">🎛️ Streaming control panel initialized</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        class StreamingController {
+            constructor() {
+                this.socket = io();
+                this.selectedPlatforms = [];
+                this.isConnected = false;
+                this.isStreaming = false;
+                
+                this.initializeEventListeners();
+                this.setupSocketListeners();
+            }
+
+            initializeEventListeners() {
+                // OBS Connection
+                document.getElementById('connect-obs').addEventListener('click', () => {
+                    this.connectToOBS();
+                });
+
+                // Stream Control
+                document.getElementById('start-stream').addEventListener('click', () => {
+                    this.startStream();
+                });
+
+                document.getElementById('stop-stream').addEventListener('click', () => {
+                    this.stopStream();
+                });
+
+                // Platform Selection
+                document.querySelectorAll('.platform-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        this.togglePlatform(card.dataset.platform);
+                    });
+                });
+
+                // Track Updates
+                document.getElementById('update-track').addEventListener('click', () => {
+                    this.updateTrackInfo();
+                });
+
+                document.getElementById('bpm-input').addEventListener('input', (e) => {
+                    if (e.target.value) {
+                        this.updateBPM(parseInt(e.target.value));
+                    }
+                });
+
+                // Scene Control
+                document.querySelectorAll('.scene-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.switchScene(btn.dataset.scene);
+                    });
+                });
+            }
+
+            setupSocketListeners() {
+                this.socket.on('status', (status) => {
+                    this.updateStatus(status);
+                });
+
+                this.socket.on('obs-connected', () => {
+                    this.isConnected = true;
+                    this.updateOBSStatus(true);
+                    this.log('✅ Connected to OBS Studio', 'success');
+                });
+
+                this.socket.on('obs-disconnected', () => {
+                    this.isConnected = false;
+                    this.updateOBSStatus(false);
+                    this.log('❌ Disconnected from OBS Studio', 'error');
+                });
+
+                this.socket.on('stream-started', () => {
+                    this.isStreaming = true;
+                    this.updateStreamStatus(true);
+                    this.log('🔴 Stream started successfully', 'success');
+                });
+
+                this.socket.on('stream-stopped', () => {
+                    this.isStreaming = false;
+                    this.updateStreamStatus(false);
+                    this.log('⏹️ Stream stopped', 'info');
+                });
+
+                this.socket.on('bpm-updated', (bpm) => {
+                    this.updateBPMDisplay(bpm);
+                });
+
+                this.socket.on('track-updated', (track) => {
+                    this.updateTrackDisplay(track);
+                });
+
+                this.socket.on('scene-changed', (sceneName) => {
+                    this.log(`🎬 Scene changed to: ${sceneName}`, 'info');
+                });
+
+                this.socket.on('error', (error) => {
+                    this.log(`❌ Error: ${error}`, 'error');
+                });
+            }
+
+            async connectToOBS() {
+                try {
+                    const response = await fetch('/api/connect', { method: 'POST' });
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.log('🔄 Connecting to OBS Studio...', 'info');
+                    } else {
+                        this.log('❌ Failed to connect to OBS Studio', 'error');
+                    }
+                } catch (error) {
+                    this.log(`❌ Connection error: ${error.message}`, 'error');
+                }
+            }
+
+            async startStream() {
+                if (this.selectedPlatforms.length === 0) {
+                    this.log('⚠️ Please select at least one platform', 'warning');
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/api/stream/start', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ platforms: this.selectedPlatforms })
+                    });
+                    
+                    const result = await response.json();
+                    if (result.success) {
+                        this.log(`🚀 Starting stream to: ${this.selectedPlatforms.join(', ')}`, 'info');
+                    }
+                } catch (error) {
+                    this.log(`❌ Failed to start stream: ${error.message}`, 'error');
+                }
+            }
+
+            async stopStream() {
+                try {
+                    const response = await fetch('/api/stream/stop', { method: 'POST' });
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.log('⏹️ Stopping stream...', 'info');
+                    }
+                } catch (error) {
+                    this.log(`❌ Failed to stop stream: ${error.message}`, 'error');
+                }
+            }
+
+            togglePlatform(platform) {
+                const card = document.querySelector(`[data-platform="${platform}"]`);
+                const index = this.selectedPlatforms.indexOf(platform);
+                
+                if (index > -1) {
+                    this.selectedPlatforms.splice(index, 1);
+                    card.classList.remove('enabled');
+                } else {
+                    this.selectedPlatforms.push(platform);
+                    card.classList.add('enabled');
+                }
+                
+                this.log(`📺 Platform ${platform}: ${index > -1 ? 'disabled' : 'enabled'}`, 'info');
+            }
+
+            async updateBPM(bpm) {
+                try {
+                    await fetch('/api/bpm', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ bpm })
+                    });
+                } catch (error) {
+                    this.log(`❌ Failed to update BPM: ${error.message}`, 'error');
+                }
+            }
+
+            async updateTrackInfo() {
+                const artist = document.getElementById('artist-input').value;
+                const title = document.getElementById('title-input').value;
+                const genre = document.getElementById('genre-input').value;
+                
+                if (!artist || !title) {
+                    this.log('⚠️ Please enter artist and track title', 'warning');
+                    return;
+                }
+
+                try {
+                    await fetch('/api/track', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ artist, title, genre })
+                    });
+                    
+                    this.log(`🎵 Updated track: ${artist} - ${title}`, 'success');
+                } catch (error) {
+                    this.log(`❌ Failed to update track: ${error.message}`, 'error');
+                }
+            }
+
+            async switchScene(sceneName) {
+                try {
+                    await fetch('/api/scene', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ sceneName })
+                    });
+                } catch (error) {
+                    this.log(`❌ Failed to switch scene: ${error.message}`, 'error');
+                }
+            }
+
+            updateStatus(status) {
+                this.isConnected = status.connected;
+                this.isStreaming = status.streaming;
+                
+                this.updateOBSStatus(status.connected);
+                this.updateStreamStatus(status.streaming);
+                
+                if (status.currentBPM) {
+                    this.updateBPMDisplay(status.currentBPM);
+                }
+                
+                if (status.currentTrack) {
+                    this.updateTrackDisplay(status.currentTrack);
+                }
+            }
+
+            updateOBSStatus(connected) {
+                const statusDot = document.getElementById('obs-status');
+                const connectBtn = document.getElementById('connect-obs');
+                const startBtn = document.getElementById('start-stream');
+                
+                if (connected) {
+                    statusDot.classList.add('connected');
+                    connectBtn.textContent = 'Connected';
+                    connectBtn.disabled = true;
+                    startBtn.disabled = false;
+                } else {
+                    statusDot.classList.remove('connected');
+                    connectBtn.textContent = 'Connect to OBS';
+                    connectBtn.disabled = false;
+                    startBtn.disabled = true;
+                }
+            }
+
+            updateStreamStatus(streaming) {
+                const statusDot = document.getElementById('stream-status');
+                const startBtn = document.getElementById('start-stream');
+                const stopBtn = document.getElementById('stop-stream');
+                
+                if (streaming) {
+                    statusDot.classList.add('streaming');
+                    startBtn.disabled = true;
+                    stopBtn.disabled = false;
+                } else {
+                    statusDot.classList.remove('streaming');
+                    startBtn.disabled = !this.isConnected;
+                    stopBtn.disabled = true;
+                }
+            }
+
+            updateBPMDisplay(bpm) {
+                document.getElementById('bpm-display').textContent = `${bpm} BPM`;
+                document.getElementById('current-bpm').textContent = `${bpm} BPM`;
+            }
+
+            updateTrackDisplay(track) {
+                const trackInfo = document.getElementById('track-info');
+                const escapeHTML = (str) => str.replace(/[&<>"']/g, (char) => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;'
+                }[char]));
+                
+                trackInfo.innerHTML = `
+                    <strong>${escapeHTML(track.artist)} - ${escapeHTML(track.title)}</strong>
+                    ${track.genre ? `<br><span style="color: #00ffff;">[${escapeHTML(track.genre)}]</span>` : ''}
+                `;
+            }
+
+            log(message, type = 'info') {
+                const logPanel = document.getElementById('activity-log');
+                const timestamp = new Date().toLocaleTimeString();
+                const logEntry = document.createElement('div');
+                logEntry.className = `log-entry ${type}`;
+                logEntry.textContent = `[${timestamp}] ${message}`;
+                
+                logPanel.appendChild(logEntry);
+                logPanel.scrollTop = logPanel.scrollHeight;
+                
+                // Keep only last 50 entries
+                while (logPanel.children.length > 50) {
+                    logPanel.removeChild(logPanel.firstChild);
+                }
+            }
+        }
+
+        // Initialize the streaming controller
+        const controller = new StreamingController();
+    </script>
+</body>
+</html>
