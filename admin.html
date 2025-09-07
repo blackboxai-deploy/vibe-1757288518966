@@ -1,0 +1,563 @@
+i<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaddBeatz Admin Panel</title>
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>BaddBeatz Admin</h1>
+                </div>
+                <div class="admin-info">
+                    <span class="admin-name">Administrator</span>
+                    <button class="logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Navigation -->
+        <nav class="admin-nav">
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showSection('dashboard')">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </button>
+                <button class="nav-tab" onclick="showSection('users')">
+                    <i class="fas fa-users"></i> Users
+                </button>
+                <button class="nav-tab" onclick="showSection('music')">
+                    <i class="fas fa-music"></i> Music
+                </button>
+                <button class="nav-tab" onclick="showSection('analytics')">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </button>
+                <button class="nav-tab" onclick="showSection('settings')">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+                <button class="nav-tab" onclick="showSection('moderation')">
+                    <i class="fas fa-gavel"></i> Moderation
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <h2>Platform Overview</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Users</h3>
+                            <span class="stat-number">1,247</span>
+                            <span class="stat-change positive">+12% this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Tracks</h3>
+                            <span class="stat-number">3,891</span>
+                            <span class="stat-change positive">+8% this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Plays</h3>
+                            <span class="stat-number">156,432</span>
+                            <span class="stat-change positive">+23% this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Revenue</h3>
+                            <span class="stat-number">$12,847</span>
+                            <span class="stat-change positive">+15% this month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <i class="fas fa-user-plus"></i>
+                                <span>New user registered: DJ_Nexus</span>
+                                <time>2 minutes ago</time>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-upload"></i>
+                                <span>Track uploaded: "Cyber Dreams" by BeatMaster</span>
+                                <time>15 minutes ago</time>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-flag"></i>
+                                <span>Content reported: Track ID #1247</span>
+                                <time>1 hour ago</time>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-star"></i>
+                                <span>Featured artist: SynthWave_Pro</span>
+                                <time>3 hours ago</time>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>System Status</h3>
+                        <div class="system-status">
+                            <div class="status-item">
+                                <span class="status-label">Server Status</span>
+                                <span class="status-indicator online">Online</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Database</span>
+                                <span class="status-indicator online">Connected</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">CDN</span>
+                                <span class="status-indicator online">Active</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Storage</span>
+                                <span class="status-indicator warning">78% Full</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users" class="admin-section">
+                <h2>User Management</h2>
+                
+                <div class="section-controls">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search users..." id="userSearch">
+                    </div>
+                    <button class="btn-primary" onclick="exportUsers()">
+                        <i class="fas fa-download"></i> Export Users
+                    </button>
+                </div>
+
+                <div class="users-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Join Date</th>
+                                <th>Tracks</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <img src="https://via.placeholder.com/40" alt="User">
+                                        <span>DJ_Nexus</span>
+                                    </div>
+                                </td>
+                                <td>dj.nexus@email.com</td>
+                                <td>2024-01-15</td>
+                                <td>23</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <button class="btn-small" onclick="viewUser('1')">View</button>
+                                    <button class="btn-small warning" onclick="suspendUser('1')">Suspend</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <img src="https://via.placeholder.com/40" alt="User">
+                                        <span>BeatMaster</span>
+                                    </div>
+                                </td>
+                                <td>beatmaster@email.com</td>
+                                <td>2024-01-10</td>
+                                <td>45</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <button class="btn-small" onclick="viewUser('2')">View</button>
+                                    <button class="btn-small warning" onclick="suspendUser('2')">Suspend</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <img src="https://via.placeholder.com/40" alt="User">
+                                        <span>SynthWave_Pro</span>
+                                    </div>
+                                </td>
+                                <td>synthwave@email.com</td>
+                                <td>2024-01-05</td>
+                                <td>67</td>
+                                <td><span class="status-badge suspended">Suspended</span></td>
+                                <td>
+                                    <button class="btn-small" onclick="viewUser('3')">View</button>
+                                    <button class="btn-small success" onclick="activateUser('3')">Activate</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Music Section -->
+            <section id="music" class="admin-section">
+                <h2>Music Management</h2>
+                
+                <div class="section-controls">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search tracks..." id="musicSearch">
+                    </div>
+                    <select class="filter-select">
+                        <option value="">All Genres</option>
+                        <option value="electronic">Electronic</option>
+                        <option value="house">House</option>
+                        <option value="techno">Techno</option>
+                        <option value="dubstep">Dubstep</option>
+                    </select>
+                </div>
+
+                <div class="music-grid">
+                    <div class="music-card">
+                        <div class="music-artwork">
+                            <img src="https://via.placeholder.com/150" alt="Track">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="music-info">
+                            <h4>Cyber Dreams</h4>
+                            <p>by BeatMaster</p>
+                            <div class="music-stats">
+                                <span><i class="fas fa-play"></i> 1,247</span>
+                                <span><i class="fas fa-heart"></i> 89</span>
+                            </div>
+                        </div>
+                        <div class="music-actions">
+                            <button class="btn-small" onclick="featureTrack('1')">Feature</button>
+                            <button class="btn-small warning" onclick="removeTrack('1')">Remove</button>
+                        </div>
+                    </div>
+
+                    <div class="music-card">
+                        <div class="music-artwork">
+                            <img src="https://via.placeholder.com/150" alt="Track">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="music-info">
+                            <h4>Neon Nights</h4>
+                            <p>by DJ_Nexus</p>
+                            <div class="music-stats">
+                                <span><i class="fas fa-play"></i> 892</span>
+                                <span><i class="fas fa-heart"></i> 67</span>
+                            </div>
+                        </div>
+                        <div class="music-actions">
+                            <button class="btn-small" onclick="featureTrack('2')">Feature</button>
+                            <button class="btn-small warning" onclick="removeTrack('2')">Remove</button>
+                        </div>
+                    </div>
+
+                    <div class="music-card">
+                        <div class="music-artwork">
+                            <img src="https://via.placeholder.com/150" alt="Track">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="music-info">
+                            <h4>Bass Drop</h4>
+                            <p>by SynthWave_Pro</p>
+                            <div class="music-stats">
+                                <span><i class="fas fa-play"></i> 2,156</span>
+                                <span><i class="fas fa-heart"></i> 134</span>
+                            </div>
+                        </div>
+                        <div class="music-actions">
+                            <button class="btn-small" onclick="featureTrack('3')">Feature</button>
+                            <button class="btn-small warning" onclick="removeTrack('3')">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="admin-section">
+                <h2>Analytics & Reports</h2>
+                
+                <div class="analytics-controls">
+                    <select class="filter-select">
+                        <option value="7">Last 7 days</option>
+                        <option value="30">Last 30 days</option>
+                        <option value="90">Last 90 days</option>
+                        <option value="365">Last year</option>
+                    </select>
+                    <button class="btn-primary" onclick="exportAnalytics()">
+                        <i class="fas fa-download"></i> Export Report
+                    </button>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>User Growth</h3>
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <p>User registration trends over time</p>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Popular Genres</h3>
+                        <div class="genre-stats">
+                            <div class="genre-item">
+                                <span>Electronic</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                                <span>85%</span>
+                            </div>
+                            <div class="genre-item">
+                                <span>House</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 72%"></div>
+                                </div>
+                                <span>72%</span>
+                            </div>
+                            <div class="genre-item">
+                                <span>Techno</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 68%"></div>
+                                </div>
+                                <span>68%</span>
+                            </div>
+                            <div class="genre-item">
+                                <span>Dubstep</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 45%"></div>
+                                </div>
+                                <span>45%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Top Tracks</h3>
+                        <div class="top-tracks">
+                            <div class="track-rank">
+                                <span class="rank">#1</span>
+                                <span class="track-name">Bass Drop</span>
+                                <span class="plays">2,156 plays</span>
+                            </div>
+                            <div class="track-rank">
+                                <span class="rank">#2</span>
+                                <span class="track-name">Cyber Dreams</span>
+                                <span class="plays">1,247 plays</span>
+                            </div>
+                            <div class="track-rank">
+                                <span class="rank">#3</span>
+                                <span class="track-name">Neon Nights</span>
+                                <span class="plays">892 plays</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="admin-section">
+                <h2>Platform Settings</h2>
+                
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>General Settings</h3>
+                        <div class="setting-item">
+                            <label>Platform Name</label>
+                            <input type="text" value="BaddBeatz" class="setting-input">
+                        </div>
+                        <div class="setting-item">
+                            <label>Max Upload Size (MB)</label>
+                            <input type="number" value="50" class="setting-input">
+                        </div>
+                        <div class="setting-item">
+                            <label>Allow User Registration</label>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Content Moderation</h3>
+                        <div class="setting-item">
+                            <label>Auto-moderate Content</label>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>Require Track Approval</label>
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>Enable Comments</label>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Email Notifications</h3>
+                        <div class="setting-item">
+                            <label>New User Notifications</label>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>Content Reports</label>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>System Alerts</label>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-actions">
+                    <button class="btn-primary" onclick="saveSettings()">Save Settings</button>
+                    <button class="btn-secondary" onclick="resetSettings()">Reset to Default</button>
+                </div>
+            </section>
+
+            <!-- Moderation Section -->
+            <section id="moderation" class="admin-section">
+                <h2>Content Moderation</h2>
+                
+                <div class="moderation-stats">
+                    <div class="mod-stat">
+                        <i class="fas fa-flag"></i>
+                        <span class="mod-number">12</span>
+                        <span class="mod-label">Pending Reports</span>
+                    </div>
+                    <div class="mod-stat">
+                        <i class="fas fa-eye"></i>
+                        <span class="mod-number">45</span>
+                        <span class="mod-label">Under Review</span>
+                    </div>
+                    <div class="mod-stat">
+                        <i class="fas fa-check"></i>
+                        <span class="mod-number">234</span>
+                        <span class="mod-label">Resolved</span>
+                    </div>
+                </div>
+
+                <div class="reports-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Content</th>
+                                <th>Reporter</th>
+                                <th>Reason</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="content-info">
+                                        <i class="fas fa-music"></i>
+                                        <span>"Dark Beats" by UnknownArtist</span>
+                                    </div>
+                                </td>
+                                <td>DJ_Nexus</td>
+                                <td>Copyright infringement</td>
+                                <td>2024-01-20</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                                <td>
+                                    <button class="btn-small" onclick="reviewContent('1')">Review</button>
+                                    <button class="btn-small success" onclick="approveContent('1')">Approve</button>
+                                    <button class="btn-small danger" onclick="removeContent('1')">Remove</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="content-info">
+                                        <i class="fas fa-comment"></i>
+                                        <span>Comment on "Cyber Dreams"</span>
+                                    </div>
+                                </td>
+                                <td>BeatMaster</td>
+                                <td>Inappropriate language</td>
+                                <td>2024-01-19</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                                <td>
+                                    <button class="btn-small" onclick="reviewContent('2')">Review</button>
+                                    <button class="btn-small success" onclick="approveContent('2')">Approve</button>
+                                    <button class="btn-small danger" onclick="removeContent('2')">Remove</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" integrity="sha512-H+rglffZ6f5gF7UJgvH4Naa+fGCgjrHKMgoFOGmcPTRwR6oILo5R+gtzNrpDp7iMV3udbymBVjkeZGNz1Em4rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="assets/js/auth-service.js"></script>
+  <script defer src="assets/js/admin.js"></script>
+</body>
+</html>
