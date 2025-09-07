@@ -1,0 +1,119 @@
+# CodeQL Configuration for BaddBeatz DJ Portfolio
+# This project contains JavaScript, Python, HTML, and CSS files
+# Languages to analyze: javascript, python
+
+# Ignore virtual environment
+temp_venv/
+venv/
+env/
+.venv/
+
+# Ignore node modules
+node_modules/
+
+# Ignore build directories
+build/
+dist/
+.build/
+
+# Ignore cache directories
+.cache/
+__pycache__/
+.pytest_cache/
+
+# Ignore coverage files
+.coverage
+coverage.xml
+htmlcov/
+
+# Ignore uploaded files
+uploads/
+
+# Ignore temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Ignore audio files and large media assets (not relevant for security analysis)
+audio/
+music/
+tracks/
+*.mp3
+*.wav
+*.flac
+*.m4a
+*.ogg
+
+# Ignore image assets (not relevant for security analysis)
+images/
+gallery/
+assets/images/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.webp
+*.ico
+
+# Ignore video files (not relevant for security analysis)
+videos/
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.webm
+
+# Ignore environment files (contain sensitive data)
+.env
+.env.*
+*.env
+
+# Ignore archive and documentation files
+archive/
+docs/_build/
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Ignore test and temporary files that may cause CodeQL issues
+test-js-syntax.js
+test-js-syntax.cjs
+cleanup_repo.py
+debug_tests.py
+cleanup_and_debug.py
+cleanup_script.py
+
+# Ignore documentation and report files (not security-relevant)
+*.md
+TESTING_REPORT.md
+WORKFLOW_VERIFICATION_REPORT.md
+BROADCASTER_PLATFORM_TESTING_REPORT.md
+LIVE_STREAMING_TESTING_REPORT.md
+COMPLETE_TESTING_REPORT.md
+SECURITY_VULNERABILITIES_FIXED.md
+COMPLETE_SECURITY_TESTING_REPORT.md
+API_SECURITY_AUDIT_REPORT.md
+GITHUB_ACTIONS_FIX_REPORT.md
+GITHUB_ACTIONS_CODEQL_FIX.md
+COMPLETE_PROJECT_SUMMARY.md
+MEMBER_SYSTEM_SUMMARY.md
+COMPLETE_MEMBER_SYSTEM_TESTING_REPORT.md
+MONETIZATION_STRATEGY.md
+QUICK_MONETIZATION_GUIDE.md
+FEATURE_BRAINSTORMING_SESSION.md
+FEATURE_IMPLEMENTATION_ROADMAP.md
+STREAMING_ARCHITECTURE_GUIDE.md
+CLOUDFLARE_SETUP_GUIDE.md
+FINAL_CLEANUP_SUMMARY.md
+COMPREHENSIVE_TESTING_REPORT.md
+PROJECT_CLEANUP_PLAN.md
+WRANGLER_OPTIMIZATION_SUMMARY.md
+
+# Focus CodeQL analysis on:
+# - Core Python files: *.py (server code, scripts)
+# - Core JavaScript files: *.js (client-side code, Node.js scripts)
+# - Configuration files: package.json, requirements.txt
+# - Main HTML files: *.html (for XSS and injection analysis)
