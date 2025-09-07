@@ -1,0 +1,70 @@
+name: "BaddBeatz CodeQL Configuration"
+
+# Disable default queries to reduce false positives for demo code
+disable-default-queries: false
+
+# Use basic security queries only
+queries:
+  - uses: security-and-quality
+
+# Paths to ignore during analysis
+paths-ignore:
+  # Documentation and reports
+  - "**/*.md"
+  - "**/README*"
+  - "**/*REPORT*"
+  - "**/*SUMMARY*"
+  - "**/*GUIDE*"
+  - "**/*TESTING*"
+  - "**/*CLEANUP*"
+  
+  # Test and debug files
+  - "**/test-*"
+  - "**/debug*"
+  - "**/cleanup*"
+  - "cleanup_repo.py"
+  
+  # Build and dependency files
+  - "**/node_modules/**"
+  - "**/build/**"
+  - "**/dist/**"
+  - "**/.cache/**"
+  - "**/__pycache__/**"
+  - "**/temp_venv/**"
+  - "**/venv/**"
+  - "**/env/**"
+  - "**/.venv/**"
+  
+  # Media and asset files
+  - "**/assets/images/**"
+  - "**/audio/**"
+  - "**/music/**"
+  - "**/videos/**"
+  - "**/*.mp3"
+  - "**/*.wav"
+  - "**/*.mp4"
+  - "**/*.jpg"
+  - "**/*.jpeg"
+  - "**/*.png"
+  - "**/*.gif"
+  - "**/*.svg"
+  - "**/*.webp"
+  - "**/*.ico"
+  
+  # Environment and config files
+  - "**/.env*"
+  - "**/wrangler.toml"
+  - "**/.DS_Store"
+  - "**/Thumbs.db"
+  - "**/*.tmp"
+  - "**/*.temp"
+
+# Paths to include (focus on core application files only)
+paths:
+  - "assets/js/*.js"
+  - "streaming-app/*.js"
+  - "scripts/*.js"
+  - "*.py"
+  - "*.html"
+  - "package.json"
+  - "requirements.txt"
