@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "baddbeatz-worker",
+  "version": "1.0.0",
+  "description": "BaddBeatz Cloudflare Workers site with AI integration",
+  "main": "index.js",
+  "author": "TheBadGuyHimself",
+  "license": "MIT",
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.3.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
