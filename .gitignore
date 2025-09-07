@@ -1,0 +1,115 @@
+node_modules/
+__pycache__/
+tests/__pycache__/
+docs/
+
+# Environment variables and secrets
+.env
+.env.local
+.env.production
+.env.staging
+.env.*.local
+
+# API Keys and Secrets (prevent YouTube API key incident recurrence)
+*.key
+*.pem
+*.p12
+*.pfx
+config/secrets.yml
+config/secrets.json
+secrets/
+.secrets
+.secrets.baseline
+
+# Authentication tokens
+auth_token
+access_token
+refresh_token
+jwt_secret
+api_keys.json
+credentials.json
+
+# Cloud service keys
+google-credentials.json
+aws-credentials
+azure-credentials
+gcp-service-account.json
+
+# Database files
+data/app.db
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Prevent API key leaks
+*.key
+*.secret
+*api_key*
+*secret_key*
+*.pem
+*.p12
+*.pfx
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.staging
+
+# Backup folders that might contain sensitive data
+backup_*/
+*_backup/
+temp_*/
