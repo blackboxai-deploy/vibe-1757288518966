@@ -1,0 +1,87 @@
+---
+name: "CI – Node (auto-detect build)"
+run-name: "CI – Node • ${{ github.actor }} • ${{ github.ref_name }}"
+
+'on':
+  push:
+    branches:
+      - '**'
+    paths:
+      - '**/*.js'
+      - '**/*.cjs'
+      - package.json
+      - package-lock.json
+      - scripts/**
+      - docs/**
+      - assets/**
+  pull_request:
+    paths:
+      - '**/*.js'
+      - '**/*.cjs'
+      - package.json
+      - package-lock.json
+      - scripts/**
+      - docs/**
+      - assets/**
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20, 22]  # 18 verwijderen (EOL)
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        env:
+          CI: true
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Lint (if present)
+        run: npm run -s lint --if-present
+
+      - name: Type check (if present)
+        run: npm run -s type-check --if-present
+
+      - name: Build (if present)
+        run: npm run -s build --if-present
+
+      - name: Validate build (if present)
+        run: npm run -s validate:build --if-present
+
+      - name: Verify build output when build script exists
+        shell: bash
+        run: |
+          set -e
+          # Check of er een "build" script is gedefinieerd
+          if node -e "const p=require('./package.json'); process.exit(p?.scripts?.build?0:1)"; then
+            if [ -d dist ] || [ -d build ]; then
+              echo "Build output gevonden."
+            else
+              echo "Build script aanwezig maar geen dist/ of build/ map aangetroffen." >&2
+              exit 1
+            fi
+          else
+            echo "Geen build script; sla output-check over."
+          fi
