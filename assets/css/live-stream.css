@@ -1,0 +1,728 @@
+/* Live Stream Interface Styles */
+/* Optimized for European electronic music events */
+
+.live-stream-section {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.live-stream-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Stream Container */
+#live-stream-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#live-stream-container iframe {
+    width: 100%;
+    height: 480px;
+    border: none;
+    display: block;
+}
+
+/* Stream Overlay */
+.stream-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    padding: 1rem;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.stream-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.dj-info h3 {
+    color: #00ffff;
+    font-size: 1.5rem;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.genre-tag {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    color: #000;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.live-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.live-indicator {
+    background: #ff0000;
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+.offline-indicator {
+    background: #666;
+    animation: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.viewer-count, .bpm-counter {
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ffff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.current-track {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.current-track marquee {
+    color: #00ffff;
+}
+
+/* Chat Interface */
+#live-chat-container {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    margin-top: 1rem;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h4 {
+    color: #00ffff;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.chat-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-small {
+    background: rgba(0, 255, 255, 0.2);
+    color: #00ffff;
+    border: 1px solid rgba(0, 255, 255, 0.5);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+    background: rgba(0, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid #00ffff;
+}
+
+.chat-message.own-message {
+    background: rgba(0, 255, 255, 0.1);
+    border-left-color: #ff00ff;
+    margin-left: 2rem;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.username {
+    color: #00ffff;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.timestamp {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.message-content {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.chat-input-container {
+    display: flex;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    gap: 0.5rem;
+}
+
+#chat-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+#chat-input:focus {
+    outline: none;
+    border-color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+#send-message {
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#send-message:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Track Requests */
+.track-requests {
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    padding: 1rem;
+}
+
+.track-requests h5 {
+    color: #ff00ff;
+    margin: 0 0 1rem 0;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+.track-request {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 0, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.request-info strong {
+    color: #00ffff;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.request-message {
+    color: #ccc;
+    font-size: 0.8rem;
+    margin: 0.25rem 0 0 0;
+    font-style: italic;
+}
+
+.vote-btn {
+    background: rgba(255, 0, 255, 0.2);
+    color: #ff00ff;
+    border: 1px solid rgba(255, 0, 255, 0.5);
+    border-radius: 15px;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.vote-btn:hover:not(:disabled) {
+    background: rgba(255, 0, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.vote-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Stream Schedule */
+#stream-schedule {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid #00ffff;
+    transition: all 0.3s ease;
+}
+
+.schedule-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.schedule-item.past {
+    opacity: 0.6;
+    border-left-color: #666;
+}
+
+.schedule-time {
+    color: #00ffff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    min-width: 150px;
+}
+
+.schedule-info {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.schedule-info h4 {
+    color: #fff;
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+}
+
+.schedule-info p {
+    color: #ccc;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.platform-tag {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    color: #000;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+}
+
+.notify-btn {
+    background: rgba(255, 165, 0, 0.2);
+    color: #ffa500;
+    border: 1px solid rgba(255, 165, 0, 0.5);
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.notify-btn:hover:not(:disabled) {
+    background: rgba(255, 165, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.notify-btn:disabled {
+    background: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+    border-color: rgba(0, 255, 0, 0.5);
+    cursor: not-allowed;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    color: #00ffff;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #ff00ff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255, 0, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.75rem;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+.modal-body input:focus,
+.modal-body select:focus,
+.modal-body textarea:focus {
+    outline: none;
+    border-color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.modal-body textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    z-index: 1001;
+    animation: slideIn 0.3s ease;
+    max-width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.notification.info {
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    border: 1px solid rgba(0, 255, 255, 0.5);
+}
+
+.notification.error {
+    background: linear-gradient(45deg, #ff4444, #ff0080);
+    border: 1px solid rgba(255, 68, 68, 0.5);
+}
+
+.notification.live-stream {
+    background: linear-gradient(45deg, #ff0000, #ff4444);
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .live-stream-section {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    #live-stream-container iframe {
+        height: 250px;
+    }
+    
+    .stream-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .live-stats {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    #live-chat-container {
+        height: 300px;
+    }
+    
+    .chat-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .chat-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .schedule-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .schedule-time {
+        min-width: auto;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .notification {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    #live-stream-container iframe {
+        height: 200px;
+    }
+    
+    .stream-overlay {
+        padding: 0.5rem;
+    }
+    
+    .dj-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .chat-input-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    #send-message {
+        width: 100%;
+    }
+    
+    .track-request {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .live-stream-section {
+        border: 2px solid #00ffff;
+    }
+    
+    .chat-message {
+        border-left-width: 5px;
+    }
+    
+    .schedule-item {
+        border-left-width: 6px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .live-indicator {
+        animation: none;
+    }
+    
+    .notification.live-stream {
+        animation: none;
+    }
+    
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .live-stream-section {
+        background: white;
+        color: black;
+        border: 1px solid black;
+    }
+    
+    .stream-overlay,
+    #live-chat-container,
+    .modal {
+        display: none;
+    }
+    
+    #stream-schedule {
+        background: white;
+        border: 1px solid black;
+    }
+    
+    .schedule-item {
+        border-left: 3px solid black;
+        background: #f0f0f0;
+    }
+}
