@@ -1,0 +1,32 @@
+# Proposed Removals
+
+## Test Files
+- Remove the entire `tests/` directory, including:
+  - deployment-logic.test.js
+  - frontend.test.js
+  - socialLinks.test.js
+  - workflow-security.test.js
+  - workflow-validation.test.js
+  - test_app.py
+  - test_gemini_logic.py
+  - test_huggingface_logic.py
+  - test_security_fixed.py
+  - test_security.py
+  - test_server_tokens.py
+  - test_worker_logic.py
+  - test_youtube_endpoint.py
+
+## Documentation Files
+- The following documentation files were proposed for removal and have been deleted:
+  - BUILD_TEST_TRIGGER.md
+  - CLOUDFLARE_BUILD_CRITICAL_PATH_TESTING_REPORT.md
+  - CLOUDFLARE_BUILD_TIMEOUT_FIX_REPORT.md
+  - CLOUDFLARE_DEPLOYMENT_COMPLETE_FIX_SUMMARY.md
+  - CLOUDFLARE_GITHUB_PAGES_DEPLOYMENT_TESTING_REPORT.md
+  - COMPREHENSIVE_REPOSITORY_TESTING_REPORT.md
+  - DEPENDABOT_COMPREHENSIVE_TESTING_REPORT.md
+  - DEPENDABOT_SECURITY_ALERTS_REMEDIATION_PLAN.md
+  - DEPLOYMENT_WORKFLOW_TESTING_REPORT.md
+  - FOURTH_WORKFLOW_DEMONSTRATION.md
+  - FIFTH_WORKFLOW_DEMONSTRATION.md
+  - SIXTH_WORKFLOW_DEMONSTRATION.md
