@@ -4,8 +4,8 @@
   "description": "BaddBeatz Multi-Platform DJ Streaming Application",
   "main": "obs-integration.js",
   "scripts": {
-    "start": "node obs-integration.js",
-    "dev": "nodemon obs-integration.js",
+    "start": "node init && node obs-integration.js",
+    "dev": "node init && nodemon obs-integration.js",
     "web": "node web-controller.js",
     "test": "jest"
   },

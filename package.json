@@ -4,9 +4,9 @@
   "description": "Modern BaddBeatz DJ Portfolio & Music Platform with Next.js 14, TypeScript, and Cloud-Native Architecture",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node init && next dev",
+    "build": "node init && next build",
+    "start": "node init && next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
