@@ -1,0 +1,76 @@
+---
+name: Deploy
+
+'on':
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: 20.18.1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
+
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '20.18.1'
+
+      - name: Compute latest main SHA
+        id: latest
+        run: |
+          set -e
+          LATEST=$(git ls-remote origin -h refs/heads/main | cut -f1)
+          echo "latest=$LATEST" >> $GITHUB_OUTPUT
+          if [ "$GITHUB_SHA" = "$LATEST" ]; then
+            echo "is_latest=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_latest=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Not latest skip marker
+        if: steps.latest.outputs.is_latest != 'true'
+        run: echo "Not the latest commit on main, skipping deploy"
+
+      - name: Install deps and build
+        if: steps.latest.outputs.is_latest == 'true'
+        run: |
+          npm ci || npm install
+          npm run build
+
+      - name: Discover output dir
+        if: steps.latest.outputs.is_latest == 'true'
+        id: outdir
+        run: |
+          set -e
+          for d in docs dist build out .output/public public; do
+            if [ -d "$d" ]; then
+              echo "output_dir=$d" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+          done
+          echo "No output dir found" >&2
+          exit 1
+
+      - name: Deploy to Cloudflare Pages
+        if: steps.latest.outputs.is_latest == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          ci/wrangler-flags
+          npx -y wrangler@4.33.0 --version
+          npx -y wrangler@4.33.0 pages deploy "${{ steps.outdir.outputs.output_dir }}" --project-name baddbeatz --branch main --commit --commit-dirty=true
+
