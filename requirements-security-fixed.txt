@@ -37,7 +37,7 @@ google-generativeai==0.8.5
 googleapis-common-protos==1.70.0
 
 # OpenAI API
-openai==1.101.0
+openai==1.106.1
 
 # Authentication & OAuth
 authlib==1.3.1
