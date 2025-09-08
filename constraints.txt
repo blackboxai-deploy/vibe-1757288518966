@@ -61,7 +61,7 @@ colorama==0.4.6
 pyparsing==3.2.3
 
 # Google ancillary
-httplib2==0.22.0
+httplib2==0.30.0
 rsa==4.9.1
 pyasn1==0.6.1
 pyasn1-modules==0.4.2
