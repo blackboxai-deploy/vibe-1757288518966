@@ -22,7 +22,7 @@ gunicorn==23.0.0
 
 # Google API / AI clients
 google-api-core==2.25.1
-google-api-python-client==2.179.0
+google-api-python-client==2.181.0
 google-auth==2.28.2
 google-auth-httplib2==0.2.0
 googleapis-common-protos==1.70.0
