@@ -10,7 +10,7 @@ idna==3.10
 certifi>=2024.8.30
 
 # Flask/WSGI stack
-flask==3.1.1
+flask==3.1.2
 flask-sqlalchemy==3.1.1
 flask-limiter==3.8.0
 sqlalchemy==2.0.43
