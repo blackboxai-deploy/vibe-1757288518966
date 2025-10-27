@@ -4,8 +4,8 @@
   "description": "Authentication backend for BaddBeatz",
   "main": "auth-server.js",
   "scripts": {
-    "start": "node auth-server.js",
-    "dev": "nodemon auth-server.js",
+    "start": "node init && node auth-server.js",
+    "dev": "node init && nodemon auth-server.js",
     "test": "jest"
   },
   "dependencies": {
