@@ -4,9 +4,9 @@
   "description": "Modern Node.js backend for BaddBeatz with GraphQL, TypeScript, and microservices architecture",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc && tsc-alias",
-    "dev": "tsx watch --clear-screen=false src/server.ts",
-    "start": "node dist/server.js",
+    "build": "node init && tsc && tsc-alias",
+    "dev": "node init && tsx watch --clear-screen=false src/server.ts",
+    "start": "node init && node dist/server.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
