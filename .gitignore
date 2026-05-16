@@ -4,10 +4,6 @@ tests/__pycache__/
 docs/
 
 # Environment variables and secrets
-.env
-.env.local
-.env.production
-.env.staging
 .env.*.local
 
 # API Keys and Secrets (prevent YouTube API key incident recurrence)
@@ -102,14 +98,9 @@ MANIFEST
 *.pfx
 
 # Environment files
-.env
-.env.local
-.env.development
-.env.test
-.env.production
-.env.staging
 
 # Backup folders that might contain sensitive data
 backup_*/
 *_backup/
 temp_*/
+config.bat
